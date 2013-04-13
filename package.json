@@ -1,14 +1,14 @@
 {
   "name": "git-contributors.js",
   "version": "0.1.0",
-  "description": "node module providing stats for you git repository",
+  "description": "A nodejs module providing contribution stats for your git repository",
   "main": "git-contributors.js",
   "scripts": {
     "test": "mocha test/test.*"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidlinse/git-contributors.js.git"
+    "url": "https://github.com/davidlinse/git-contributors.js.git"
   },
   "keywords": [
     "git",
@@ -16,16 +16,20 @@
     "stats",
     "nodejs"
   ],
-  "author": "David Linse <davidlinse@gmail.com> http://8ball-media.de",
+  "author": {
+    "name": "David Linse",
+    "email": "davidlinse@gmail.com",
+    "url": "http://8ball-media.de"
+  },
   "license": "MIT",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "underscore": "~1.4.4"
+  },
   "devDependencies": {
     "chai": "~1.5.0",
     "mocha": "~1.8.2",
     "sinon": "~1.6.0",
     "plato": "~0.5.0"
-  },
-  "dependencies": {
-    "underscore": "~1.4.4"
   }
 }
