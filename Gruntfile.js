@@ -32,19 +32,94 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
+        // enforcing
+        bitwise: false,
+        camelcase: false,
         curly: true,
         eqeqeq: true,
+        forin: true,
         immed: true,
-        latedef: true,
-        newcap: true,
+        // indent: 4,
+        latedef: false,
+        newcap: false,
         noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
+        noempty: true,
+        nonew: true,
+        plusplus: true,
+        // quotmark: true, // true|single|double
+        regexp: true,
+        undef: false,   // enable for later code cleanup
+        unused: false,  // enable for later code cleanup
+        strict: false,
+        trailing: true,
+        maxparams: 4,
+        maxdepth: 2,
+        maxstatements: 35,
+        maxcomplexity: 3,
+        maxlen: 135,
+
+        // relaxing
+
+        asi: false,
         boss: true,
+        debug: false,
         eqnull: true,
+        es5: true,
+        esnext: false,
+        evil: false,
+        expr: true,
+        funcscope: true,
+        globalstrict: false,
+        iterator: false,
+        lastsemic: false,
+        laxbreak: false,
+        laxcomma: false,
+        loopfunc: false,
+        multistr: true,
+        onecase: false,
+        proto: false,
+        regexdash: false,
+        scripturl: false,
+        smarttabs: false,
+        shadow: false,
+        sub: false,
+        supernew: false,
+        validthis: false,
+        white: false,       // enable for later code cleanup
+
+        // environment
+
+        browser: true,
+        couch: false,
+        devel: true,
+        dojo: false,
+        jquery: true,
+        mootools: false,
+        node: true,
+        nonstandard: true,
+        prototypejs: false,
+        rhino: false,
+        worker: false,
+        wsh: false,
+        yui: false,
+
         globals: {
-          jQuery: true
+          jQuery: true,
+          window: true,
+          console: true,
+          underscore: true,
+          Backbone: true,
+          "$": true,
+          _: true,
+
+          // requirejs global
+          define: true,
+          require: true,
+
+          // node and test globals
+          module: true,
+          exports: true,
+          describe: true
         }
       },
       gruntfile: {
