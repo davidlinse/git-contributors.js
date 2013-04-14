@@ -127,6 +127,11 @@ module.exports = function(grunt) {
         src: 'Gruntfile.js'
       }
     },
+    exec: {
+        plato: {
+            command: "./node_modules/.bin/plato -d reports/plato/ <%= pkg.name %>",
+            stdout: true
+        },
     }
   });
 
@@ -134,8 +139,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-exec');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('plato', 'exec:plato');
 
 };

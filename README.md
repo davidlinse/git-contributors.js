@@ -51,6 +51,7 @@ $ git --version #=> 1.7+
 * [mocha][mocha] (1.8.2)
 * [chai][chai] (1.5.0)
 * [sinon][sinon] (1.6.0)
+* [plato][plato] (0.5.0)
 
 
 #### Developer notes
@@ -75,6 +76,7 @@ $ mocha -R list test/
 [mocha]: http://visionmedia.github.com/mocha/
 [chai]: http://chaijs.com
 [sinon]: http://sinonjs.org
+[plato]: https://github.com/jsoverson/plato
 
 #### Licence
 
