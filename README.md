@@ -5,11 +5,11 @@ A nodejs module which provides you with contributor stats for your git repositor
 It uses the result of `$ git log --pretty=%an` to calculate and add the percental contribution of each committer to the output.
 
 #### Synopsis
+You can either `require` it somewhere in you node-module like ...
 
 ```bash
 # your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
-
 GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
     if (err) throw err;
     shortlog.forEach(function (contributor) {
@@ -17,8 +17,13 @@ GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
     })
 });
 ```
+.. or execute it with an optional argument like ..
 
-Which gives you an (sorted) result array like ...
+```bash
+$ node git-contributors.js /path/to/repository-dir/
+```
+
+.. which gives you an (sorted) result array like ..
 
 ```JSON
 [
