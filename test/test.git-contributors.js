@@ -6,7 +6,7 @@ var _      = require('underscore'),
     should = chai.should(),
     expect = chai.expect,
 
-    GitContributors = require('../git-contributors').GitContributors;
+    GitContributors = require('../');
 
 
 describe('git-contributors', function (done) {
