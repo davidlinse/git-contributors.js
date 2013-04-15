@@ -34,10 +34,13 @@
     "grunt-contrib-nodeunit": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-watch": "*",
+    "grunt-contrib-compress": "*",
     "grunt-exec": "*",
     "chai": "~1.5.0",
     "mocha": "~1.8.2",
+    "mocha-lcov-reporter": "~0.0.1",
     "sinon": "~1.6.0",
-    "plato": "~0.5.0"
+    "plato": "~0.5.0",
+    "jscover": "~0.2.4"
   }
 }

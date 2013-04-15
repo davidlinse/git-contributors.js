@@ -128,10 +128,37 @@ module.exports = function(grunt) {
       }
     },
     exec: {
-        plato: {
-            command: "./node_modules/.bin/plato -d reports/plato/ <%= pkg.name %>",
-            stdout: true
-        },
+
+      test: {
+          command: "mocha test/",
+          stdout: true
+      },
+
+      // code analysis
+      plato: {
+          command: "./node_modules/.bin/plato -d reports/plato/",
+          stdout: true
+      },
+      plato_open: {
+          command: "open reports/plato/index.html",
+          stdout: true
+      },
+
+      // code coverage
+      cov_pre: {
+          command: "rm -rf lib-cov"
+      },
+      cov_run: {
+          command: "jscoverage --verbose lib lib-cov"
+      },
+      cov_test: {
+          command: "MOCHA_COV=1 mocha test/test.*.js -R html-cov > reports/coverage/index.html",
+          stdout: true
+      },
+      cov_open: {
+          command: "open reports/coverage/index.html",
+          stdout: true
+      }
     }
   });
 
@@ -144,5 +171,11 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('plato', 'exec:plato');
+
+  // generate coverage (html) report using 'jscover' module
+  grunt.registerTask('cov', [ 'exec:cov_pre',
+                              'exec:cov_run',
+                              'exec:cov_test',
+                              'exec:cov_open']);
 
 };
