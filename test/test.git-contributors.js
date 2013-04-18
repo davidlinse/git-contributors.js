@@ -39,7 +39,7 @@ describe('git-contributors', function (done) {
 
                 var first = _.first(result);
 
-                expect(_.keys(first)).to.deep.equal(['commits', 'name', 'percent']);
+                expect(first).to.contain.keys(['commits', 'name', 'percent']);
 
                 done();
             });
@@ -60,8 +60,6 @@ describe('git-contributors', function (done) {
 
 
         it('should invoke callback with error and message', function (done) {
-
-            var spy = sinon.spy();
 
             GitContributors.list('./not-existing-directory', function (err, data) {
 
