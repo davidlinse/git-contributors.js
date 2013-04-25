@@ -24,23 +24,24 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "underscore": "~1.4.4"
+    "underscore": "1.4.x"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.1.1",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-nodeunit": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-compress": "*",
-    "grunt-exec": "*",
-    "chai": "~1.5.0",
-    "mocha": "~1.8.2",
-    "mocha-lcov-reporter": "~0.0.1",
-    "sinon": "~1.6.0",
-    "plato": "~0.5.0",
-    "jscover": "~0.2.4"
+    "grunt": "0.4.x",
+    "grunt-contrib-jshint": "0.1.x",
+    "grunt-contrib-concat": "0.2.x",
+    "grunt-contrib-uglify": "0.2.x",
+    "grunt-contrib-nodeunit": "0.1.x",
+    "grunt-contrib-jshint": "0.1.x",
+    "grunt-contrib-watch": "0.3.x",
+    "grunt-contrib-compress": "0.4.x",
+    "grunt-exec": "0.4.x",
+    "chai": "1.5.x",
+    "mocha": "1.8.x",
+    "mocha-lcov-reporter": "0.0.x",
+    "sinon": "1.6.x",
+    "plato": "0.5.x",
+    "jscover": "0.2.x",
+    "jshint": "0.9.x"
   }
 }
