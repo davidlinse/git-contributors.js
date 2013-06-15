@@ -1,8 +1,8 @@
-### git-contributors.js (0.1.0)
+### git-contributors.js (0.1.1)
 
-A nodejs module which provides you with contributor stats for your git repository.
+A nodejs module providing contribution stats for your git repository.
 
-It uses the result of `$ git log --pretty=%an` to calculate and add the percental contribution of each committer to the output.
+It uses the result of `$ git log --pretty=%an` to calculate and add the amount of percental contribution of each committer to the output.
 
 #### Synopsis
 You can either `require` it somewhere in you node-module like ...
@@ -28,9 +28,9 @@ $ node git-contributors.js /path/to/repository-dir/
 ```JSON
 [
     // sorted descending by commits (beautyfied)
-    { commits: 200, name: 'Maja',  percent: '56.8 %' },
-    { commits: 50,  name: 'Flip',  percent: '31.1 %' },
-    { commits: 10,  name: 'Willi', percent: '10.8 %' }
+    { commits: 200, name: 'Maja',  email: 'maja@hive', percent: '56.8 %' },
+    { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: '31.1 %' },
+    { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: '10.8 %' }
 ]
 ```
 
@@ -66,7 +66,26 @@ $ mocha --version #=> 1.7.4
 $ mocha -R list test/
 ```
 
+#### Reports
+
+```
+$ grunt plato
+```
+
+
+#### TODO/Wishlist
+
+
+* add `--plain` parameter to generate simple plaint-text file
+* add `grouping` of comitters based on `user name`
+* add `grouping` of comitters based on `user mail`
+
+
+
 #### History
+
+* 0.1.1
+    + add email of contributor
 
 * 0.1.0 initial commit
 
@@ -77,6 +96,7 @@ $ mocha -R list test/
 [chai]: http://chaijs.com
 [sinon]: http://sinonjs.org
 [plato]: https://github.com/jsoverson/plato
+
 
 #### Licence
 
