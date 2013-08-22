@@ -65,7 +65,6 @@ module.exports = function(grunt) {
         boss: true,
         debug: false,
         eqnull: true,
-        es5: true,
         esnext: false,
         evil: false,
         expr: true,
@@ -102,7 +101,6 @@ module.exports = function(grunt) {
         rhino: false,
         worker: false,
         wsh: false,
-        yui: false,
 
         globals: {
           jQuery: true,
