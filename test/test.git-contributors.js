@@ -39,7 +39,7 @@ describe('git-contributors', function (done) {
 
                 var first = _.first(result);
 
-                expect(first).to.contain.keys(['commits', 'name', 'percent']);
+                expect(first).to.contain.keys(['commits', 'name', 'percent', 'email']);
 
                 done();
             });
