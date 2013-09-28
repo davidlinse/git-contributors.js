@@ -1,5 +1,5 @@
 
-var _      = require('underscore'),
+var _      = require('lodash'),
     mocha  = require('mocha'),
     sinon  = require('sinon'),
     chai   = require('chai'),

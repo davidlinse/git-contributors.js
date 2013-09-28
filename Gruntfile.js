@@ -106,10 +106,10 @@ module.exports = function(grunt) {
           jQuery: true,
           window: true,
           console: true,
-          underscore: true,
+          underscore: false,
           Backbone: true,
           "$": true,
-          _: true,
+          _: false,
 
           // requirejs global
           define: true,

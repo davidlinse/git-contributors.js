@@ -43,7 +43,8 @@ $ git --version #=> 1.7+
 ```
 
 #### Dependencies
-* [underscore.js][underscore] (1.4.4)
+<strike>* [underscore.js][underscore] (1.4.4)</strike>
+* [lodash.js][lodsh] (~2.0.0)
 
 
 #### Developer Dependencies
@@ -84,6 +85,9 @@ $ grunt plato
 
 #### History
 
+* 0.1.2
+    + replace `underscore` in favour of `lodash`
+
 * 0.1.1
     + add email of contributor
 
@@ -92,10 +96,11 @@ $ grunt plato
 
 [semver]: http://semver.org
 [underscore]: http://underscorejs.org
+[lodash]: http://lodash.com
 [mocha]: http://visionmedia.github.com/mocha/
 [chai]: http://chaijs.com
 [sinon]: http://sinonjs.org
-[plato]: https://github.com/jsoverson/plato
+[plato]: https://github.com/es-analysis/plato
 
 
 #### Licence
