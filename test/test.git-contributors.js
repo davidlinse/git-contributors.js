@@ -1,15 +1,17 @@
+/* global describe, it */
+/* jshint expr:true */
+
+"use strict";
 
 var _      = require('lodash'),
-    mocha  = require('mocha'),
     sinon  = require('sinon'),
     chai   = require('chai'),
-    should = chai.should(),
     expect = chai.expect,
 
     GitContributors = require('../').GitContributors;
 
 
-describe('git-contributors', function (done) {
+describe('git-contributors', function () {
 
     describe('api', function () {
 
@@ -20,12 +22,11 @@ describe('git-contributors', function (done) {
 
         it('should have a #list method', function () {
             expect(GitContributors).to.have.property('list');
-            expect(_.isFunction(GitContributors.list)).to.be.true;
         });
     });
 
 
-    describe('#list()', function (done) {
+    describe('#list()', function () {
 
         // use current git-repo
         //
@@ -61,7 +62,7 @@ describe('git-contributors', function (done) {
 
         it('should invoke callback with error and message', function (done) {
 
-            GitContributors.list('./not-existing-directory', function (err, data) {
+            GitContributors.list('./not-existing-directory', function (err) {
 
                 expect(err).to.exist;
                 expect(err).to.have.property('message', 'Could not find .git repository at "./not-existing-directory"');
