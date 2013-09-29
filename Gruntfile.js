@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     concat: {
       options: {
         banner: '<%= banner %>',
-        stripBanners: true
+        stripBanners: false
       },
       dist: {
         src: ['lib/<%= pkg.name %>'],
@@ -43,8 +43,11 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc'
       },
-      gruntfile: {
-        src: 'Gruntfile.js'
+//    gruntfile: {
+//      src: 'Gruntfile.js'
+//    },
+      lib: {
+        src: 'lib/<%= pkg.name %>'
       }
     },
     exec: {
@@ -86,10 +89,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-exec');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+
+  // coverage report
   grunt.registerTask('plato', 'exec:plato');
 
   grunt.registerTask('test', 'exec:test');
@@ -100,4 +106,21 @@ module.exports = function(grunt) {
                               'exec:cov_test',
                               'exec:cov_open']);
 
+  grunt.registerTask('bin', function () {
+
+    var shebang = grunt.file.read('fixtures/node-shebang');
+
+    var footer  = grunt.file.read('fixtures/binary-footer.js');
+
+    var opts = {
+        process: function(content) {
+          return shebang + '\n' + content + '\n\n' + footer;
+        }
+      };
+
+    var src = grunt.config.process('dist/<%= pkg.name %>');
+    var dest = grunt.config.process('bin/<%= pkg.name %>').replace('.js', '');
+
+    grunt.file.copy(src, dest, opts);
+  });
 };
