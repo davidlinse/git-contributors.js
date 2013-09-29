@@ -35,6 +35,10 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>-min.js'
       }
     },
+    watch: {
+      files: ['lib/*.js', 'test/test.*.js'],
+      tasks: ['exec:test']
+    },
     jshint: {
       options: {
         jshintrc: '.jshintrc'
