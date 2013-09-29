@@ -6,7 +6,7 @@ var _      = require('lodash'),
     should = chai.should(),
     expect = chai.expect,
 
-    GitContributors = require('../');
+    GitContributors = require('../').GitContributors;
 
 
 describe('git-contributors', function (done) {
