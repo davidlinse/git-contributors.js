@@ -42,15 +42,15 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            //    gruntfile: {
-            //      src: 'Gruntfile.js'
-            //    },
             lib: {
                 src: 'lib/*.js'
-            },
-            test: {
-                src: 'test/test.*.js'
             }
+            // test: {
+            //     src: 'test/test.*.js'
+            // },
+            // gruntfile: {
+            //     src: 'Gruntfile.js'
+            // }
         },
         clean: {
             dist: ['dist/', 'bin/', 'tmp/']
