@@ -122,5 +122,7 @@ module.exports = function(grunt) {
         var dest = grunt.config.process('bin/<%= pkg.name %>').replace('.js', '');
 
         grunt.file.copy(src, dest, opts);
+
+        require('fs').chmodSync(dest, '755');
     });
 };
