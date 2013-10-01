@@ -41,7 +41,6 @@
     "mocha-lcov-reporter": "0.0.x",
     "sinon": "1.6.x",
     "plato": "0.5.x",
-    "jscover": "0.2.x",
-    "jshint": "0.9.x"
+    "jscover": "0.2.x"
   }
 }
