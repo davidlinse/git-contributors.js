@@ -2,13 +2,20 @@
   "name": "git-contributors.js",
   "version": "0.1.0",
   "description": "A nodejs module providing contribution stats for your git repository",
-  "main": "git-contributors.js",
+  "main": "index.js",
+  "bin": {
+    "git-contributors": "bin/git-contributors"
+  },
   "scripts": {
+    "prepublish": "npm prune && npm test",
     "test": "mocha test/test.*"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/davidlinse/git-contributors.js.git"
+  },
+  "engine": {
+    "node": ">= 0.8.x"
   },
   "keywords": [
     "git",
