@@ -5,9 +5,7 @@ module.exports = function(grunt) {
 
     'use strict';
 
-    // Project configuration.
     grunt.initConfig({
-        // Metadata.
         pkg: grunt.file.readJSON('package.json'),
         banner:
           '/*!\n * <%= pkg.title || pkg.name %> (<%= pkg.version %>) - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -62,7 +60,7 @@ module.exports = function(grunt) {
             },
             // code analysis
             plato: {
-                command: './node_modules/.bin/plato -d reports/plato/',
+                command: './node_modules/.bin/plato -l .jshintrc -d reports/plato/ lib/*.js',
                 stdout: true
             },
             plato_open: {
@@ -109,7 +107,6 @@ module.exports = function(grunt) {
 
 
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
-
 
     grunt.registerTask('bin', function () {
 
