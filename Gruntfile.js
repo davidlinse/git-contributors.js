@@ -63,10 +63,6 @@ module.exports = function(grunt) {
                 command: './node_modules/.bin/plato -l .jshintrc -d reports/plato/ lib/*.js',
                 stdout: true
             },
-            plato_open: {
-                command: 'open reports/plato/index.html',
-                stdout: true
-            },
             // code coverage
             cov_pre: {
                 command: 'rm -rf lib-cov'
