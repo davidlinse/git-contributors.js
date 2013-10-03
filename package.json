@@ -2,13 +2,20 @@
   "name": "git-contributors.js",
   "version": "0.1.0",
   "description": "A nodejs module providing contribution stats for your git repository",
-  "main": "git-contributors.js",
+  "main": "index.js",
+  "bin": {
+    "git-contributors": "bin/git-contributors"
+  },
   "scripts": {
+    "prepublish": "npm prune && npm test",
     "test": "mocha test/test.*"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/davidlinse/git-contributors.js.git"
+  },
+  "engine": {
+    "node": ">= 0.8.x"
   },
   "keywords": [
     "git",
@@ -28,11 +35,11 @@
   },
   "devDependencies": {
     "grunt": "0.4.x",
-    "grunt-contrib-jshint": "0.1.x",
+    "grunt-contrib-jshint": "0.6.x",
+    "grunt-contrib-clean": "0.5.x",
     "grunt-contrib-concat": "0.2.x",
     "grunt-contrib-uglify": "0.2.x",
     "grunt-contrib-nodeunit": "0.1.x",
-    "grunt-contrib-jshint": "0.1.x",
     "grunt-contrib-watch": "0.3.x",
     "grunt-contrib-compress": "0.4.x",
     "grunt-exec": "0.4.x",
@@ -41,7 +48,6 @@
     "mocha-lcov-reporter": "0.0.x",
     "sinon": "1.6.x",
     "plato": "0.5.x",
-    "jscover": "0.2.x",
-    "jshint": "0.9.x"
+    "jscover": "0.2.x"
   }
 }
