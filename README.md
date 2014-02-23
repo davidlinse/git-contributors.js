@@ -1,14 +1,23 @@
-### git-contributors.js (0.1.1)
+### git-contributors.js (0.1.0)
 
 A nodejs module providing contribution stats for your git repository.
 
 It uses the result of `$ git log --pretty=%an` to calculate and add the amount of percental contribution of each committer to the output.
 
-#### Synopsis
-You can either `require` it somewhere in you node-module like ...
+#### Usage
 
-```bash
-# your-node-module.js
+If installed it via `$ npm install -g git-contributors.js`
+ execute it with an optional argument like ..
+
+```sh
+$ node git-contributors.js /path/to/repository-dir/
+```
+
+
+You can also `require` it somewhere in you node-module.
+
+```js
+// your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
 GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
     if (err) throw err;
@@ -17,34 +26,30 @@ GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
     })
 });
 ```
-.. or execute it with an optional argument like ..
 
-```bash
-$ node git-contributors.js /path/to/repository-dir/
-```
+
 
 .. which gives you an (sorted) result array like ..
 
-```JSON
+```js
 [
     // sorted descending by commits (beautyfied)
-    { commits: 200, name: 'Maja',  email: 'maja@hive', percent: '56.8 %' },
-    { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: '31.1 %' },
-    { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: '10.8 %' }
+    { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 56.8 },
+    { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 31.1 },
+    { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 10.8 }
 ]
 ```
 
 #### Requirements
 
-```JavaScript
-$ ruby -v #=> ruby 1.9.3p125
-$ node --version #=> 0.8+
-$ git --version #=> 1.7+
+```sh
+$ ruby -v # ruby 1.9.3p125
+$ node --version # 0.8+
+$ git --version # 1.7+
 ```
 
 #### Dependencies
-<strike>* [underscore.js][underscore] (1.4.4)</strike>
-* [lodash.js][lodsh] (~2.0.0)
+* [lodash.js][lodash] (~2.0.0)
 
 
 #### Developer Dependencies
@@ -62,14 +67,16 @@ $ git --version #=> 1.7+
 
 #### Tests
 
-```
-$ mocha --version #=> 1.7.4
+```sh
+$ grunt test
+// or
+$ mocha --version # 1.7.4
 $ mocha -R list test/
 ```
 
 #### Reports
 
-```
+```sh
 $ grunt plato
 ```
 
