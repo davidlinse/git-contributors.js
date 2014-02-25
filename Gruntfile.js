@@ -22,16 +22,6 @@ module.exports = function(grunt) {
                 dest: 'dist/<%= pkg.name %>.js'
             }
         },
-        uglify: {
-            options: {
-                banner: '<%= banner %>',
-                compress: true
-            },
-            dist: {
-                src: '<%= concat.dist.dest %>',
-                dest: 'dist/<%= pkg.name %>-min.js'
-            }
-        },
         watch: {
             files: ['Gruntfile.js', 'lib/*.js', 'test/test.*.js'],
             tasks: ['jshint', 'exec:test']
@@ -82,7 +72,7 @@ module.exports = function(grunt) {
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-concat');
+    // grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
