@@ -94,23 +94,27 @@ module.exports = function(grunt) {
 
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
 
+    //
     grunt.registerTask('bin', function () {
 
-        var shebang = grunt.file.read('fixtures/node-shebang');
+        var shebang = grunt.file.read('fixtures/binary-header');
 
-        var footer  = grunt.file.read('fixtures/binary-footer.js');
+        var footer  = grunt.file.read('fixtures/binary-footer');
+
+        var banner  = grunt.config.get('banner');
 
         var opts = {
             process: function(content) {
-                return shebang + '\n' + content + '\n\n' + footer;
+                return shebang + '\n' + banner + content + '\n\n' + footer;
             }
         };
 
-        var src = grunt.config.process('dist/<%= pkg.name %>.js');
+        var src  = grunt.config.process('lib/<%= pkg.name %>.js');
         var dest = grunt.config.process('bin/<%= pkg.name %>');
 
         grunt.file.copy(src, dest, opts);
 
         require('fs').chmodSync(dest, '755');
     });
+
 };
