@@ -12,26 +12,7 @@ module.exports = function(grunt) {
           ' <%= pkg.repository.url ? "* " + pkg.repository.url + "\\n" : "* " %>' +
           ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
           ' License: <%= pkg.license %>\n */\n\n',
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: false
-            },
-            dist: {
-                src: ['lib/<%= pkg.name %>.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
-        uglify: {
-            options: {
-                banner: '<%= banner %>',
-                compress: true
-            },
-            dist: {
-                src: '<%= concat.dist.dest %>',
-                dest: 'dist/<%= pkg.name %>-min.js'
-            }
-        },
+
         watch: {
             files: ['Gruntfile.js', 'lib/*.js', 'test/test.*.js'],
             tasks: ['jshint', 'exec:test']
@@ -82,7 +63,6 @@ module.exports = function(grunt) {
     });
 
     // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -90,37 +70,46 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', []);
 
     // coverage report
     grunt.registerTask('plato', 'exec:plato');
 
-    //
+    // execute tests
     grunt.registerTask('test', 'exec:test');
 
     // generate coverage (html) report using 'jscover' module
-    grunt.registerTask('cov', ['exec:cov_pre', 'exec:cov_run', 'exec:cov_test', 'exec:cov_open']);
+    grunt.registerTask('cov', [ 'exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
 
-
+    // clean build
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
 
+    //
     grunt.registerTask('bin', function () {
 
-        var shebang = grunt.file.read('fixtures/node-shebang');
+        var shebang = grunt.file.read('fixtures/binary-header');
 
-        var footer  = grunt.file.read('fixtures/binary-footer.js');
+        var footer  = grunt.file.read('fixtures/binary-footer');
+
+        var banner  = grunt.config.get('banner');
 
         var opts = {
             process: function(content) {
-                return shebang + '\n' + content + '\n\n' + footer;
+                return shebang + '\n' + banner + content + '\n\n' + footer;
             }
         };
 
-        var src = grunt.config.process('dist/<%= pkg.name %>.js');
+        var src  = grunt.config.process('lib/<%= pkg.name %>.js');
         var dest = grunt.config.process('bin/<%= pkg.name %>');
 
         grunt.file.copy(src, dest, opts);
 
         require('fs').chmodSync(dest, '755');
     });
+
+    //
+    grunt.registerTask('build', ['clean', 'default', 'test', 'bin']);
+
+    //
+    grunt.registerTask('release', ['cov', 'build', 'plato']);
 };
