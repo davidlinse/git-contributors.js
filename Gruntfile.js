@@ -18,8 +18,8 @@ module.exports = function(grunt) {
                 stripBanners: false
             },
             dist: {
-                src: ['lib/<%= pkg.name %>'],
-                dest: 'dist/<%= pkg.name %>'
+                src: ['lib/<%= pkg.name %>.js'],
+                dest: 'dist/<%= pkg.name %>.js'
             }
         },
         uglify: {
@@ -116,8 +116,8 @@ module.exports = function(grunt) {
             }
         };
 
-        var src = grunt.config.process('dist/<%= pkg.name %>');
-        var dest = grunt.config.process('bin/<%= pkg.name %>').replace('.js', '');
+        var src = grunt.config.process('dist/<%= pkg.name %>.js');
+        var dest = grunt.config.process('bin/<%= pkg.name %>');
 
         grunt.file.copy(src, dest, opts);
 

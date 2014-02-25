@@ -1,18 +1,22 @@
 {
-  "name": "git-contributors.js",
   "version": "0.1.0",
+  "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
+  "preferGlobal": true,
   "main": "index.js",
   "bin": {
     "git-contributors": "bin/git-contributors"
   },
   "scripts": {
-    "prepublish": "npm prune && npm test",
+    "prepublish": "npm test",
     "test": "mocha test/test.*"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidlinse/git-contributors.js.git"
+    "url": "git://github.com/davidlinse/git-contributors.js.git"
+  },
+  "bugs": {
+    "url": "http://github.com/davidlinse/git-contributors.js/issues"
   },
   "engine": {
     "node": ">= 0.8.x"
@@ -21,12 +25,14 @@
     "git",
     "contributors",
     "stats",
-    "nodejs"
+    "nodejs",
+    "stat",
+    "repository"
   ],
   "author": {
     "name": "David Linse",
     "email": "davidlinse@gmail.com",
-    "url": "http://8ball-media.de"
+    "url": "http://davidlinse.github.io"
   },
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -50,5 +56,6 @@
     "plato": "^0.5.0",
     "jscover": "0.2.x",
     "lodash": "^2.0.0"
-  }
+  },
+  "contributors": []
 }
