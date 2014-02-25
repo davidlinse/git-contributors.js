@@ -12,16 +12,7 @@ module.exports = function(grunt) {
           ' <%= pkg.repository.url ? "* " + pkg.repository.url + "\\n" : "* " %>' +
           ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
           ' License: <%= pkg.license %>\n */\n\n',
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: false
-            },
-            dist: {
-                src: ['lib/<%= pkg.name %>.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
+
         watch: {
             files: ['Gruntfile.js', 'lib/*.js', 'test/test.*.js'],
             tasks: ['jshint', 'exec:test']
@@ -72,7 +63,6 @@ module.exports = function(grunt) {
     });
 
     // These plugins provide necessary tasks.
-    // grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
