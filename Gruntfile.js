@@ -117,4 +117,9 @@ module.exports = function(grunt) {
         require('fs').chmodSync(dest, '755');
     });
 
+    //
+    grunt.registerTask('build', ['clean', 'default', 'test', 'bin']);
+
+    //
+    grunt.registerTask('release', ['cov', 'build', 'plato']);
 };
