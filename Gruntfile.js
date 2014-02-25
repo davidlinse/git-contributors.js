@@ -89,7 +89,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', 'exec:test');
 
     // generate coverage (html) report using 'jscover' module
-    grunt.registerTask('cov', ['exec:cov_pre', 'exec:cov_run', 'exec:cov_test', 'exec:cov_open']);
+    grunt.registerTask('cov', [ 'exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
 
 
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
