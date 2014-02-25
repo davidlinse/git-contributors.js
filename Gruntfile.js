@@ -85,13 +85,13 @@ module.exports = function(grunt) {
     // coverage report
     grunt.registerTask('plato', 'exec:plato');
 
-    //
+    // execute tests
     grunt.registerTask('test', 'exec:test');
 
     // generate coverage (html) report using 'jscover' module
     grunt.registerTask('cov', [ 'exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
 
-
+    // clean build
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
 
     //
