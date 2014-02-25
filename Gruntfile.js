@@ -80,7 +80,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('default', []);
 
     // coverage report
     grunt.registerTask('plato', 'exec:plato');
