@@ -1,35 +1,36 @@
 ### git-contributors.js (0.1.0)
 
-A nodejs module providing contribution stats for your git repository.
+A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
-It uses the result of `$ git log --pretty=%an` to calculate and add the amount of percental contribution of each committer to the output.
+This module utilize `$ git log --pretty=%an` to calculate and add the amount
+of percental contribution of each committer to the output.
 
-#### Usage
-
-If installed it via `$ npm install -g git-contributors.js`
- execute it with an optional argument like ..
+#### _Command-Line Usage_
 
 ```sh
+$ npm install -g git-contributors
+
 $ node git-contributors.js /path/to/repository-dir/
 ```
+_Note:_ The _`/path/to/repository-dir/` is _optional_ and defaults to `$ (c|p)wd`.
 
 
-You can also `require` it somewhere in you node-module.
+##### _Programatic Usage_
+
+You can also `require` it somewhere in you node-module,
 
 ```js
 // your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
 GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
-    if (err) throw err;
+    if (err) { throw err; }
     shortlog.forEach(function (contributor) {
         console.log(contributor.commits, contributor.name, contributor.percent);
     })
 });
 ```
 
-
-
-.. which gives you an (sorted) result array like ..
+.. which gives you an _sorted_ array of results:
 
 ```js
 [
@@ -60,9 +61,9 @@ $ git --version # 1.7+
 * [plato][plato] (0.5.0)
 
 
-#### Developer notes
+#### Developer Notes
 
-* claim to follow versioning guide-lines proposed by [semver.org][semver]
+* claim to follow _"versioning guide lines"_ proposed by [semver.org][semver]
 
 
 #### Tests
@@ -81,34 +82,20 @@ $ grunt plato
 ```
 
 
-#### TODO/Wishlist
-
-
-* add `--plain` parameter to generate simple plaint-text file
-* add `grouping` of comitters based on `user name`
-* add `grouping` of comitters based on `user mail`
-
-
 
 #### History
 
-* 0.1.2
-    + replace `underscore` in favour of `lodash`
+* 0.1.0 initial release
 
-* 0.1.1
-    + add email of contributor
-
-* 0.1.0 initial commit
 
 
 [semver]: http://semver.org
-[underscore]: http://underscorejs.org
 [lodash]: http://lodash.com
 [mocha]: http://visionmedia.github.com/mocha/
 [chai]: http://chaijs.com
 [sinon]: http://sinonjs.org
 [plato]: https://github.com/es-analysis/plato
-
+[nodejs]: http://nodejs.org
 
 #### Licence
 
