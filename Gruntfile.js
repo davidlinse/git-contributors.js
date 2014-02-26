@@ -8,7 +8,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         banner:
-          '/*!\n * <%= pkg.title || pkg.name %> (<%= pkg.version %>) - <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+          '/*!\n * <%= pkg.title || pkg.name %> (<%= pkg.version %>) - '+
+          '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
           ' <%= pkg.repository.url ? "* " + pkg.repository.url + "\\n" : "* " %>' +
           ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
           ' License: <%= pkg.license %>\n */\n\n',
@@ -23,13 +24,13 @@ module.exports = function(grunt) {
             },
             lib: {
                 src: 'lib/*.js'
+            },
+            test: {
+                src: 'test/test.*.js'
+            },
+            gruntfile: {
+                src: 'Gruntfile.js'
             }
-            // test: {
-            //     src: 'test/test.*.js'
-            // },
-            // gruntfile: {
-            //     src: 'Gruntfile.js'
-            // }
         },
         clean: {
             dist: ['dist/', 'bin/', 'tmp/']
@@ -79,7 +80,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', 'exec:test');
 
     // generate coverage (html) report using 'jscover' module
-    grunt.registerTask('cov', [ 'exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
+    grunt.registerTask('cov', ['exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
 
     // clean build
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
