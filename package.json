@@ -1,0 +1,61 @@
+{
+  "version": "0.1.0",
+  "name": "git-contributors",
+  "description": "A nodejs module providing contribution stats for your git repository",
+  "preferGlobal": true,
+  "main": "index.js",
+  "bin": {
+    "git-contributors": "bin/git-contributors"
+  },
+  "scripts": {
+    "prepublish": "npm test",
+    "test": "mocha test/test.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/davidlinse/git-contributors.js.git"
+  },
+  "bugs": {
+    "url": "http://github.com/davidlinse/git-contributors.js/issues"
+  },
+  "engine": {
+    "node": ">= 0.8.x"
+  },
+  "keywords": [
+    "git",
+    "contributors",
+    "stats",
+    "nodejs",
+    "stat",
+    "repository"
+  ],
+  "author": {
+    "name": "David Linse",
+    "email": "davidlinse@gmail.com",
+    "url": "http://davidlinse.github.io"
+  },
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "lodash": "~2.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.2",
+    "grunt-contrib-jshint": "^0.6.5",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-concat": "^0.2.0",
+    "grunt-contrib-uglify": "^0.2.7",
+    "grunt-contrib-nodeunit": "^0.1.2",
+    "grunt-contrib-watch": "^0.3.1",
+    "grunt-contrib-compress": "^0.4.10",
+    "grunt-exec": "^0.4.5",
+    "chai": "^1.5.0",
+    "mocha": "^1.8.2",
+    "mocha-lcov-reporter": "0.0.1",
+    "sinon": "^1.6.0",
+    "plato": "^0.5.0",
+    "jscover": "0.2.x",
+    "lodash": "^2.0.0"
+  },
+  "contributors": []
+}
