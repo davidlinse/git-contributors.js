@@ -1,14 +1,16 @@
-### git-contributors.js (0.1.0)
+### git-contributors.js (0.1.1)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
 This module utilize `$ git log --pretty=%an` to calculate and add the amount
 of percental contribution of each committer to the output.
 
-[![Build Status][travis_png]][travis_link]
+[![Build Status][travis_png]][travis_link] [![Dependency Status][dm_png]][dm_url]
 
 [travis_png]: https://travis-ci.org/davidlinse/git-contributors.js.png?branch=master
 [travis_link]: https://travis-ci.org/davidlinse/git-contributors.js
+[dm_png]: https://david-dm.org/davidlinse/git-contributors.js.png
+[dm_url]: https://david-dm.org/davidlinse/git-contributors.js
 
 #### Usage
 
@@ -54,7 +56,7 @@ $ git --version # 1.7+
 ```
 
 #### Dependencies
-* [lodash.js][lodash] (~2.0.0)
+* [lodash.js][lodash] (~2.4.1)
 
 
 #### Developer Dependencies
@@ -88,6 +90,10 @@ $ grunt plato
 
 
 #### History
+
+* 0.1.1
+  + status badges
+  + updated dependencies
 
 * 0.1.0 initial release
 

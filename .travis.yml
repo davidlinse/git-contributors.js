@@ -11,4 +11,5 @@ before_script:
   - export PATH=~/bin:$PATH
   - npm install --dev
 
-script: npm test || exit 125;
+script:
+  - npm test || exit 125;
