@@ -5,17 +5,21 @@ A [_Node.js_][nodejs] module providing contribution stats for your git repositor
 This module utilize `$ git log --pretty=%an` to calculate and add the amount
 of percental contribution of each committer to the output.
 
-#### _Command-Line Usage_
+[![Build Status][travis_png]][travis_link]
+
+[travis_png]: https://travis-ci.org/davidlinse/git-contributors.js.png?branch=master
+[travis_link]: https://travis-ci.org/davidlinse/git-contributors.js
+
+#### Usage
 
 ```sh
 $ npm install -g git-contributors
 
 $ node git-contributors.js /path/to/repository-dir/
 ```
-_Note:_ The _`/path/to/repository-dir/` is _optional_ and defaults to `$ (c|p)wd`.
+_Note:_
+The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.
 
-
-##### _Programatic Usage_
 
 You can also `require` it somewhere in you node-module,
 
