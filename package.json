@@ -54,7 +54,8 @@
     "mocha-lcov-reporter": "^0.0.1",
     "sinon": "^1.8.2",
     "plato": "^0.5.0",
-    "jscover": "^0.2"
+    "jscover": "^0.2",
+    "commander": "^2.1.0"
   },
   "contributors": []
 }
