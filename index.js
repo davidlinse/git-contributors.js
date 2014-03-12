@@ -1,15 +1,42 @@
+'use strict';
+
 module.exports.GitContributors = process.env.MOCHA_COV ?
     require('./lib-cov/git-contributors').GitContributors :
     require('./lib/git-contributors').GitContributors;
 
+
 if (!module.parent) {
 
-    var target = process.argv.length > 2 ? process.argv[3] : '.';
+    var program = require('commander');
 
-    require('./lib/git-contributors').GitContributors.list(target, function (err, data) {
+    program
+      .version('0.1.2')
+      .on('--help',
+        function () {
+            console.log('  Usage:');
+            console.log('');
+            console.log('    $ git-contributors `pwd`');
+            console.log('    $ git-contributors </path/to/repository>');
+            console.log('');
+        })
+      .parse(process.argv);
+
+
+    if (!program.args.length) {
+        program.help();
+        process.exit(0);
+    }
+
+    var target = program.args[0];
+
+    var GC = module.exports.GitContributors;
+
+    GC.list(target, function (err, data) {
 
         if (err) { throw err; }
 
         console.log(data);
+
+        process.exit(0);
     });
 }
