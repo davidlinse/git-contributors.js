@@ -60,6 +60,15 @@ module.exports = function(grunt) {
                 command: 'open reports/coverage/index.html',
                 stdout: true
             }
+        },
+        changelog: {
+            options: {
+                repository: '<%= pkg.repository.url %>',
+                from: '<%= changelog.from %>',
+                to:   '<%= changelog.to %>',
+                dest: "CHANGELOG.md",
+                file: "CHANGELOG.md"
+            }
         }
     });
 
@@ -69,6 +78,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-conventional-changelog');
 
     // Default task.
     grunt.registerTask('default', []);
@@ -84,6 +94,9 @@ module.exports = function(grunt) {
 
     // clean build
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
+
+
+    grunt.loadTasks('tasks/');
 
     //
     grunt.registerTask('bin', function () {
@@ -112,5 +125,6 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['clean', 'default', 'test', 'bin']);
 
     //
-    grunt.registerTask('release', ['cov', 'build', 'plato']);
+    grunt.registerTask('release', ['cov', 'build', 'plato', 'update-changelog']);
+
 };
