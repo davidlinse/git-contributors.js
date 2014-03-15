@@ -80,6 +80,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-conventional-changelog');
 
+    // load external tasks
+    grunt.loadTasks('tasks/');
+
     // Default task.
     grunt.registerTask('default', []);
 
@@ -95,34 +98,8 @@ module.exports = function(grunt) {
     // clean build
     grunt.registerTask('pre', ['clean', 'default', 'bin']);
 
-
-    grunt.loadTasks('tasks/');
-
     //
-    grunt.registerTask('bin', function () {
-
-        var shebang = grunt.file.read('fixtures/binary-header');
-
-        var footer  = grunt.file.read('fixtures/binary-footer');
-
-        var banner  = grunt.config.get('banner');
-
-        var opts = {
-            process: function(content) {
-                return shebang + '\n' + banner + content + '\n\n' + footer;
-            }
-        };
-
-        var src  = grunt.config.process('lib/<%= pkg.name %>.js');
-        var dest = grunt.config.process('bin/<%= pkg.name %>');
-
-        grunt.file.copy(src, dest, opts);
-
-        require('fs').chmodSync(dest, '755');
-    });
-
-    //
-    grunt.registerTask('build', ['clean', 'default', 'test', 'bin']);
+    grunt.registerTask('build', ['clean', 'default', 'test', 'generate-binary']);
 
     //
     grunt.registerTask('release', ['cov', 'build', 'plato', 'update-changelog']);
