@@ -59,19 +59,6 @@ $ git --version # 1.7+
 * [lodash.js][lodash] (~2.4.1)
 
 
-#### Developer Dependencies
-
-* [mocha][mocha] (1.8.2)
-* [chai][chai] (1.5.0)
-* [sinon][sinon] (1.6.0)
-* [plato][plato] (0.5.0)
-
-
-#### Developer Notes
-
-* claim to follow _"versioning guide lines"_ proposed by [semver.org][semver]
-
-
 #### Tests
 
 ```sh
@@ -86,8 +73,6 @@ $ mocha -R list test/
 ```sh
 $ grunt plato
 ```
-
-
 
 #### History
 
