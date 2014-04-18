@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.2)
+### git-contributors.js (0.1.3)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -75,6 +75,9 @@ $ grunt plato
 ```
 
 #### History
+
+* 0.1.3
+  + minor refactorings
 
 * 0.1.2
   + basic support for _cli_ options (`--help, --version`)
