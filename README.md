@@ -20,7 +20,7 @@ $ npm install -g git-contributors
 $ git-contributors.js /path/to/repository-dir/
 ```
 _Note:_
-~~~The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.~~~
+~~The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.~~
 The _`/path/to/repository-dir/`_ is now _mandatory_ otherwise _--help_ is invoked.
 
 
