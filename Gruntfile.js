@@ -66,8 +66,8 @@ module.exports = function(grunt) {
                 repository: '<%= pkg.repository.url %>',
                 from: '<%= changelog.from %>',
                 to:   '<%= changelog.to %>',
-                dest: "CHANGELOG.md",
-                file: "CHANGELOG.md"
+                dest: 'CHANGELOG.md',
+                file: 'CHANGELOG.m'
             }
         }
     });
