@@ -1,7 +1,7 @@
 /* global describe, it */
 /* jshint expr:true */
 
-"use strict";
+'use strict';
 
 var _      = require('lodash'),
     sinon  = require('sinon'),
@@ -40,7 +40,9 @@ describe('git-contributors', function () {
 
                 var first = _.first(result);
 
-                expect(first).to.contain.keys(['commits', 'name', 'percent', 'email']);
+                expect(first).to.contain.keys(
+                    ['commits', 'name', 'percent', 'email']
+                );
 
                 done();
             });
@@ -62,10 +64,16 @@ describe('git-contributors', function () {
 
         it('should invoke callback with error and message', function (done) {
 
-            GitContributors.list('./not-existing-directory', function (err) {
+            var repo, msg;
+
+            repo = './not-existing-directory';
+
+            msg = 'Could not find .git repository at "'+ repo +'"';
+
+            GitContributors.list(repo, function (err) {
 
                 expect(err).to.exist;
-                expect(err).to.have.property('message', 'Could not find .git repository at "./not-existing-directory"');
+                expect(err).to.have.property('message', msg);
 
                 done();
             });
