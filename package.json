@@ -13,10 +13,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidlinse/git-contributors.js.git"
+    "url": "https://github.com/davidlinse/git-contributors.js.git"
   },
   "bugs": {
-    "url": "http://github.com/davidlinse/git-contributors.js/issues"
+    "url": "https://github.com/davidlinse/git-contributors.js/issues"
   },
   "engine": {
     "node": ">= 0.8.x"
