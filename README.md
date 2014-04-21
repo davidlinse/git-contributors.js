@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.3)
+### git-contributors.js (0.1.4)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -17,10 +17,11 @@ of percental contribution of each committer to the output.
 ```sh
 $ npm install -g git-contributors
 
-$ node git-contributors.js /path/to/repository-dir/
+$ git-contributors.js /path/to/repository-dir/
 ```
 _Note:_
-The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.
+~~~The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.~~~
+The _`/path/to/repository-dir/`_ is now _mandatory_ otherwise _--help_ is invoked.
 
 
 You can also `require` it somewhere in you node-module,
@@ -50,7 +51,6 @@ GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
 #### Requirements
 
 ```sh
-$ ruby -v # ruby 1.9.3p125
 $ node --version # 0.8+
 $ git --version # 1.7+
 ```
@@ -75,6 +75,10 @@ $ grunt plato
 ```
 
 #### History
+
+* 0.1.4
+  + a _`/path/to/repository-dir/` is _mandatory_ now
+  + add fixture based testing
 
 * 0.1.3
   + minor refactorings
