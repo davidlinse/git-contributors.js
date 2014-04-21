@@ -19,21 +19,15 @@ $ npm install -g git-contributors
 
 $ git-contributors.js /path/to/repository-dir/
 ```
-_Note:_
-~~~The _`/path/to/repository-dir/` is _optional_ and defaults to current directory.~~~
-The _`/path/to/repository-dir/`_ is now _mandatory_ otherwise _--help_ is invoked.
-
 
 You can also `require` it somewhere in you node-module,
 
 ```js
 // your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
-GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
+GitContributors.list('/path/to/repository-dir', function (err, result) {
     if (err) { throw err; }
-    shortlog.forEach(function (contributor) {
-        console.log(contributor.commits, contributor.name, contributor.percent);
-    })
+    console.log(JSON.stringify(result, null, 2));
 });
 ```
 
@@ -41,10 +35,10 @@ GitContributors.list('/path/to/repository-dir', function (err, shortlog) {
 
 ```js
 [
-    // sorted descending by commits (beautyfied)
-    { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 56.8 },
-    { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 31.1 },
-    { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 10.8 }
+  // sorted descending by commits (beautyfied)
+  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 56.8 },
+  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 31.1 },
+  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 10.8 }
 ]
 ```
 
