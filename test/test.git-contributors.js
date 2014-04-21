@@ -1,7 +1,7 @@
 /* global describe, it */
 /* jshint expr:true */
 
-"use strict";
+'use strict';
 
 var _      = require('lodash'),
     sinon  = require('sinon'),
