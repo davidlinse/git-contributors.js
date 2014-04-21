@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.4)
+### git-contributors.js (0.1.5)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -73,25 +73,6 @@ $ mocha -R list test/
 ```sh
 $ grunt plato
 ```
-
-#### History
-
-* 0.1.4
-  + a _`/path/to/repository-dir/` is _mandatory_ now
-  + add fixture based testing
-
-* 0.1.3
-  + minor refactorings
-
-* 0.1.2
-  + basic support for _cli_ options (`--help, --version`)
-
-* 0.1.1
-  + status badges
-  + updated dependencies
-
-* 0.1.0 initial release
-
 
 
 [semver]: http://semver.org
