@@ -79,6 +79,28 @@ describe('git-contributors', function () {
 
     }); //it
 
+
+    it('can parse same user with different emails ', function (done) {
+
+      var inFixture, outFixture;
+
+      inFixture = 'test/fixtures/actual/single-user-multiple-commit-different-mail.log';
+
+      outFixture = 'test/fixtures/expected/single-user-multiple-commit-different-mail.json';
+
+      stubFixture(inFixture);
+
+      GitContributors.list('.', function (err, result) {
+
+        expect(err).to.not.exist;
+
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
+
+        done();
+      });
+
+    }); //it
+
   });
 
 });
