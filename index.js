@@ -8,9 +8,11 @@ module.exports.GitContributors = process.env.MOCHA_COV ?
 if (!module.parent) {
 
   var program = require('commander');
+  var fs      = require('fs');
+  var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
   program
-    .version('0.1.2')
+    .version(version)
     .on('--help',
       function () {
         console.log('  Usage:');
