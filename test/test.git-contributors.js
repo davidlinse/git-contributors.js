@@ -3,7 +3,7 @@
 
 'use strict';
 
-var _      = require('lodash'),
+var _  = require('lodash'),
 sinon  = require('sinon'),
 chai   = require('chai'),
 expect = chai.expect,
