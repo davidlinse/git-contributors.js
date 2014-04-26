@@ -8,8 +8,7 @@
     "git-contributors": "bin/git-contributors"
   },
   "scripts": {
-    "prepublish": "npm test",
-    "test": "mocha test/test.*"
+    "test": "mocha test/test.*.js"
   },
   "repository": {
     "type": "git",
