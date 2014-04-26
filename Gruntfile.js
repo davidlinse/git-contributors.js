@@ -1,4 +1,4 @@
-/* jshint maxlen: 124 */
+/* jshint maxlen: 87 */
 /* global module: false */
 
 module.exports = function(grunt) {
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       ' License: <%= pkg.license %>\n */\n\n',
 
     watch: {
-      files: ['Gruntfile.js', 'lib/*.js', 'test/test.*.js'],
+      files: ['Gruntfile.js', 'lib/*.js', 'test/test.*.js', 'tasks/*'],
       tasks: ['jshint', 'exec:test']
     },
     jshint: {
@@ -30,10 +30,14 @@ module.exports = function(grunt) {
       },
       gruntfile: {
         src: 'Gruntfile.js'
+      },
+      tasks: {
+        src: 'tasks/*.js'
       }
     },
     clean: {
-      dist: ['dist/', 'bin/', 'tmp/']
+      dist: ['dist/', 'bin/', 'tmp/', 'lib-cov'],
+      cov: ['lib-cov/']
     },
     exec: {
       test: {
@@ -45,15 +49,19 @@ module.exports = function(grunt) {
         command: './node_modules/.bin/plato -l .jshintrc -d reports/plato/ lib/*.js',
         stdout: true
       },
-      // code coverage
-      cov_pre: {
-        command: 'rm -rf lib-cov'
-      },
       cov_run: {
         command: 'jscoverage --verbose lib lib-cov'
       },
+      /*jshint maxlen: 127 */
       cov_test: {
         command: 'MOCHA_COV=1 mocha test/test.*.js -R html-cov > reports/coverage/index.html',
+      },
+      cov_report: {
+        command: 'node_modules/.bin/istanbul cover '+
+                 '--dir reports/istanbul '+
+                 'node_modules/.bin/_mocha -- '+
+                 '--ui bdd test/test.*.js '+
+                 '-R spec test/test.*.js',
         stdout: true
       },
       cov_open: {
@@ -93,7 +101,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', 'exec:test');
 
   // generate coverage (html) report using 'jscover' module
-  grunt.registerTask('cov', ['exec:cov_pre', 'exec:cov_run', 'exec:cov_test']);
+  grunt.registerTask('cov', ['clean:cov', 'exec:cov_run', 'exec:cov_test']);
 
   // clean build
   grunt.registerTask('pre', ['clean', 'default', 'bin']);
