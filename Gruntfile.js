@@ -101,7 +101,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', 'exec:test');
 
   // generate coverage (html) report using 'jscover' module
-  grunt.registerTask('cov', ['clean:cov', 'exec:cov_run', 'exec:cov_test']);
+  grunt.registerTask('cov', ['clean:cov', 'exec:cov_run', 'exec:cov_report']);
 
   // clean build
   grunt.registerTask('pre', ['clean', 'default', 'bin']);
@@ -110,6 +110,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['clean', 'default', 'test', 'generate-binary']);
 
   //
-  grunt.registerTask('release', ['cov', 'build', 'plato', 'update-changelog']);
+  grunt.registerTask('release', ['cov', 'build', 'plato', 'cl']);
 
 };
