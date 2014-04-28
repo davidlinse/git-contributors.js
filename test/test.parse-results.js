@@ -124,7 +124,7 @@ describe('git-contributors', function () {
     it('should throw when no path given via object', function (done) {
 
       var f = function () {
-        GitContributors.list({path: null}, function (/*err, result*/) {});
+        GitContributors.list({cwd: null}, function (/*err, result*/) {});
       };
 
       expect(f).to.throw({
