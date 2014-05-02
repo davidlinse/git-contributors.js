@@ -120,20 +120,5 @@ describe('git-contributors', function () {
       done();
     });
 
-
-    it('should throw when no path given via object', function (done) {
-
-      var f = function () {
-        GitContributors.list({cwd: null}, function (/*err, result*/) {});
-      };
-
-      expect(f).to.throw({
-        type: 'Error',
-        message: 'Something went wrong while building target path.'
-      });
-
-      done();
-    });
-
   });
 });
