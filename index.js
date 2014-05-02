@@ -17,7 +17,6 @@ if (!module.parent) {
       function () {
         console.log('  Usage:');
         console.log('');
-        console.log('    $ git-contributors `pwd`');
         console.log('    $ git-contributors </path/to/repository>');
         console.log('');
       })
@@ -35,7 +34,10 @@ if (!module.parent) {
 
   GC.list(target, function (err, data) {
 
-    if (err) { throw err; }
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
 
     console.log(data);
 
