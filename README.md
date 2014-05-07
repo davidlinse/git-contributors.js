@@ -5,6 +5,10 @@ A [_Node.js_][nodejs] module providing contribution stats for your git repositor
 This module utilize `$ git log --pretty=%an` to calculate and add the amount
 of percental contribution of each committer to the output.
 
+_Note:_<br/>
+Please be aware that the current checked out branch is inspected.
+Currently there is no way to specify a custom branch.
+
 [![Build Status][travis_png]][travis_link] [![Dependency Status][dm_png]][dm_url]
 
 [travis_png]: https://travis-ci.org/davidlinse/git-contributors.js.png?branch=master
