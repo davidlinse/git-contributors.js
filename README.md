@@ -20,7 +20,7 @@ $ npm install -g git-contributors
 $ git-contributors.js /path/to/repository-dir/
 ```
 
-You can also `require` it somewhere in you node-module,
+You can also `require` it somewhere in your node-module,
 
 ```js
 // your-node-module.js
