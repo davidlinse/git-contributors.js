@@ -34,6 +34,7 @@ module.exports = function(grunt) {
     var dest = grunt.config.process('bin/<%= pkg.name %>');
 
     grunt.file.copy(src, dest, opts);
+    grunt.file.copy('lib/gitlog.js', 'bin/gitlog.js', opts);
 
     require('fs').chmodSync(dest, '755');
   });
