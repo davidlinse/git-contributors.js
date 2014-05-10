@@ -3,14 +3,8 @@
 
 if (!module.parent) {
 
-    var target = process.argv.length > 2 ? process.argv[2] : '.';
+    var fs      = require('fs');
+    var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
-    // console.log(process.argv);
-
-    module.exports.GitContributors.list(target, function (err, data) {
-
-        if (err) { throw err; }
-
-        console.log(data);
-    });
+    module.exports.GitContributors.parse(process.argv, version);
 }
