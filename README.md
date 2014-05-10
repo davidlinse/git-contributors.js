@@ -20,7 +20,6 @@ Currently there is no way to specify a custom branch.
 
 ```sh
 $ npm install -g git-contributors
-
 $ git-contributors.js /path/to/repository-dir/
 ```
 
@@ -29,7 +28,11 @@ You can also `require` it somewhere in your node-module,
 ```js
 // your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
-GitContributors.list('/path/to/repository-dir', function (err, result) {
+
+var opts = '/path/to/repository-dir'; // or
+    opts = {cwd: '/path/to/repository-dir', format: 'json'};
+
+GitContributors.list(opts, function (err, result) {
     if (err) { throw err; }
     console.log(JSON.stringify(result, null, 2));
 });
@@ -40,9 +43,9 @@ GitContributors.list('/path/to/repository-dir', function (err, result) {
 ```js
 [
   // sorted descending by commits (beautyfied)
-  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 56.8 },
-  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 31.1 },
-  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 10.8 }
+  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 76.9 },
+  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 19.2 },
+  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
 ]
 ```
 
