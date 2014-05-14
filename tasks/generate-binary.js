@@ -18,23 +18,16 @@ module.exports = function(grunt) {
 
     var shebang = grunt.file.read('fixtures/binary-header');
 
-    var footer = grunt.file.read('fixtures/binary-footer');
-
-    var banner = grunt.config.get('banner');
-
-    var opts;
-
-    opts = {
+    var opts = {
       process: function(content) {
-        return shebang + '\n' + banner + content + '\n\n' + footer;
+        return shebang +'\n' + content;
       }
     };
 
-    var src = grunt.config.process('lib/<%= pkg.name %>.js');
+    var src = grunt.config.process('tmp/<%= pkg.name %>.js');
     var dest = grunt.config.process('bin/<%= pkg.name %>');
 
     grunt.file.copy(src, dest, opts);
-    grunt.file.copy('lib/gitlog.js', 'bin/gitlog.js', opts);
 
     require('fs').chmodSync(dest, '755');
   });
