@@ -20,7 +20,8 @@ module.exports = function(grunt) {
 
     var opts = {
       process: function(content) {
-        return shebang +'\n' + content;
+        return shebang +'\n' +
+               content.replace('    git   = require(\'./gitlog\'),\n', '');
       }
     };
 

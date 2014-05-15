@@ -35,9 +35,25 @@ module.exports = function(grunt) {
         src: 'tasks/*.js'
       }
     },
+    concat: {
+      options: {
+        banner: '<%= banner %>',
+        footer: '',
+        stripBanners: true
+      },
+      bin: {
+        options: {
+          footer: grunt.util.linefeed +
+                  grunt.file.read('fixtures/binary-footer'),
+        },
+        src: ['lib/gitlog.js', 'lib/git-contributors.js'],
+        dest: 'tmp/git-contributors.js'
+      }
+    },
     clean: {
       dist: ['dist/', 'bin/', 'tmp/', 'lib-cov'],
-      cov: ['lib-cov/']
+      cov: ['lib-cov/'],
+      tmp: ['tmp/']
     },
     exec: {
       test: {
@@ -84,6 +100,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
