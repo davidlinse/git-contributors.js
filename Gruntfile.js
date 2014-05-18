@@ -109,10 +109,7 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks/');
 
   // Default task.
-  grunt.registerTask('default', []);
-
-  // coverage report
-  grunt.registerTask('plato', 'exec:plato');
+  grunt.registerTask('default', ['jshint', 'test']);
 
   // execute tests
   grunt.registerTask('test', 'exec:test');
@@ -120,13 +117,16 @@ module.exports = function(grunt) {
   // generate coverage (html) report using 'jscover' module
   grunt.registerTask('cov', ['clean:cov', 'exec:cov_run', 'exec:cov_report']);
 
+  // coverage report
+  grunt.registerTask('plato', 'exec:plato');
+
   // clean build
-  grunt.registerTask('pre', ['clean', 'default', 'bin']);
+  grunt.registerTask('pre', ['clean', 'default']);
 
   //
-  grunt.registerTask('build', ['clean', 'default', 'test', 'generate-binary']);
+  grunt.registerTask('build', ['concat', 'generate-binary']);
 
   //
-  grunt.registerTask('release', ['cov', 'build', 'plato', 'cl']);
+  grunt.registerTask('release', ['pre', 'cov', 'build', 'plato', 'cl', 'clean:tmp']);
 
 };
