@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.5)
+### git-contributors.js (0.1.6)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
