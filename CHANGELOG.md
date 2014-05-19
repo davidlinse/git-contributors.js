@@ -1,3 +1,12 @@
+<a name="0.1.6"></a>
+### 0.1.6 (2014-05-19)
+
+
+#### Features
+
+* print usage example in case of invalid path ([064b52df](https://github.com/davidlinse/git-contributors.js.git/commit/064b52df4740f9b3537449c850b663cf2178c34f))
+
+
 <a name="0.1.5"></a>
 ### 0.1.5 (2014-04-21)
 

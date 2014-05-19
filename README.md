@@ -1,9 +1,13 @@
-### git-contributors.js (0.1.5)
+### git-contributors.js (0.1.6)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
 This module utilize `$ git log --pretty=%an` to calculate and add the amount
 of percental contribution of each committer to the output.
+
+_Note:_<br/>
+Please be aware that the current checked out branch is inspected.
+Currently there is no way to specify a custom branch.
 
 [![Build Status][travis_png]][travis_link] [![Dependency Status][dm_png]][dm_url]
 
@@ -16,16 +20,19 @@ of percental contribution of each committer to the output.
 
 ```sh
 $ npm install -g git-contributors
-
 $ git-contributors.js /path/to/repository-dir/
 ```
 
-You can also `require` it somewhere in you node-module,
+You can also `require` it somewhere in your node-module,
 
 ```js
 // your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
-GitContributors.list('/path/to/repository-dir', function (err, result) {
+
+var opts = '/path/to/repository-dir'; // or
+    opts = {cwd: '/path/to/repository-dir', format: 'json'};
+
+GitContributors.list(opts, function (err, result) {
     if (err) { throw err; }
     console.log(JSON.stringify(result, null, 2));
 });
@@ -36,9 +43,9 @@ GitContributors.list('/path/to/repository-dir', function (err, result) {
 ```js
 [
   // sorted descending by commits (beautyfied)
-  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 56.8 },
-  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 31.1 },
-  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 10.8 }
+  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 76.9 },
+  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 19.2 },
+  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
 ]
 ```
 

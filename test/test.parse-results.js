@@ -103,4 +103,22 @@ describe('git-contributors', function () {
 
   });
 
+
+  describe('when given wrong arguments', function () {
+
+    it('should throw when no path given via string', function (done) {
+
+      var f = function () {
+        GitContributors.list(null, function (/*err, result*/) {});
+      };
+
+      expect(f).to.throw({
+        type: 'Error',
+        message: 'Something went wrong while building target path.'
+      });
+
+      done();
+    });
+
+  });
 });

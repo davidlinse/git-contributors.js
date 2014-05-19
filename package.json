@@ -1,5 +1,5 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
   "preferGlobal": true,
@@ -8,8 +8,7 @@
     "git-contributors": "bin/git-contributors"
   },
   "scripts": {
-    "prepublish": "npm test",
-    "test": "mocha test/test.*"
+    "test": "mocha test/test.*.js"
   },
   "repository": {
     "type": "git",
@@ -37,7 +36,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "commander": "~2.1.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -50,12 +50,11 @@
     "grunt-contrib-compress": "~0.4.10",
     "grunt-conventional-changelog": "~1.1.0",
     "grunt-exec": "~0.4.5",
-    "chai": "~1.9.0",
+    "chai": "~1.9.1",
     "conventional-changelog": "~0.0.6",
-    "mocha": "~1.17.1",
+    "mocha": "~1.18.2",
     "sinon": "~1.8.2",
-    "plato": "~0.5.0",
-    "commander": "~2.1.0"
+    "plato": "~1.0.1"
   },
   "contributors": []
 }

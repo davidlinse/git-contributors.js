@@ -12,28 +12,25 @@
 
 module.exports = function(grunt) {
 
-    'use strict';
+  'use strict';
 
-    grunt.registerTask('generate-binary', function () {
+  grunt.registerTask('generate-binary', function() {
 
-        var shebang = grunt.file.read('fixtures/binary-header');
+    var shebang = grunt.file.read('fixtures/binary-header');
 
-        var footer  = grunt.file.read('fixtures/binary-footer');
+    var opts = {
+      process: function(content) {
+        return shebang +'\n' +
+               content.replace('    git   = require(\'./gitlog\'),\n', '');
+      }
+    };
 
-        var banner  = grunt.config.get('banner');
+    var src = grunt.config.process('tmp/<%= pkg.name %>.js');
+    var dest = grunt.config.process('bin/<%= pkg.name %>');
 
-        var opts = {
-            process: function(content) {
-                return shebang + '\n' + banner + content + '\n\n' + footer;
-            }
-        };
+    grunt.file.copy(src, dest, opts);
 
-        var src  = grunt.config.process('lib/<%= pkg.name %>.js');
-        var dest = grunt.config.process('bin/<%= pkg.name %>');
-
-        grunt.file.copy(src, dest, opts);
-
-        require('fs').chmodSync(dest, '755');
-    });
+    require('fs').chmodSync(dest, '755');
+  });
 
 };
