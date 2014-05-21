@@ -75,6 +75,8 @@ $ mocha -R list test/
 $ grunt plato
 ```
 
+[![NPM](https://nodei.co/npm/git-contributors.png?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)
+
 
 [semver]: http://semver.org
 [lodash]: http://lodash.com
