@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * git-contributors (0.1.6) - 2014-05-19
+ * git-contributors (0.1.7) - 2014-05-21
  * https://github.com/davidlinse/git-contributors.js.git
  * Copyright (c) 2014 David Linse; License: MIT
  */

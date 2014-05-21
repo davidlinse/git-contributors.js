@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.6)
+### git-contributors.js (0.1.7)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -15,6 +15,7 @@ Currently there is no way to specify a custom branch.
 [travis_link]: https://travis-ci.org/davidlinse/git-contributors.js
 [dm_png]: https://david-dm.org/davidlinse/git-contributors.js.png
 [dm_url]: https://david-dm.org/davidlinse/git-contributors.js
+
 
 #### Usage
 
