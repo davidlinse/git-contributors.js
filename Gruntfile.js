@@ -75,6 +75,7 @@ module.exports = function(grunt) {
       cov_report: {
         command: 'node_modules/.bin/istanbul cover '+
                  '--dir reports/istanbul '+
+                 '-x index.js '+
                  'node_modules/.bin/_mocha -- '+
                  '--ui bdd test/test.*.js '+
                  '-R spec test/test.*.js',
