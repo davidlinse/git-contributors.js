@@ -75,6 +75,8 @@ module.exports = function(grunt) {
       cov_report: {
         command: 'node_modules/.bin/istanbul cover '+
                  '--dir reports/istanbul '+
+                 '-x index.js '+
+                 '--report html' +
                  'node_modules/.bin/_mocha -- '+
                  '--ui bdd test/test.*.js '+
                  '-R spec test/test.*.js',
@@ -97,7 +99,6 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
