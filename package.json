@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.8",
   "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
   "preferGlobal": true,
@@ -18,7 +18,7 @@
     "url": "https://github.com/davidlinse/git-contributors.js/issues"
   },
   "engine": {
-    "node": ">= 0.8.x"
+    "node": ">= 0.10.28"
   },
   "keywords": [
     "git",
