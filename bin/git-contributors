@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * git-contributors (0.1.7) - 2014-05-21
+ * git-contributors (0.1.8) - 2014-05-24
  * https://github.com/davidlinse/git-contributors.js.git
  * Copyright (c) 2014 David Linse; License: MIT
  */
@@ -58,12 +58,12 @@ var __parseOpts = function (opts) {
 };
 
 
-var __repositoryExists = function (opts /*, cb */) {
+var __repositoryExists = function (dir /*, cb */) {
   'use strict';
-  var repo   = path.join(opts.cwd, '.git'),
+  var repo   = path.join(dir, '.git'),
       exists = true;
 
-  if (!fs.existsSync(opts.cwd) || !fs.existsSync(repo)) {
+  if (!fs.existsSync(dir) || !fs.existsSync(repo)) {
     exists = false;
   }
   return exists;
@@ -112,7 +112,7 @@ GitContributors.prototype.list = function (opts, cb) {
 
   opts = __parseOpts(opts);
 
-  if (!__repositoryExists(opts /*, cb*/)) {
+  if (!__repositoryExists(opts.cwd /*, cb*/)) {
     return cb(
       new Error('Could not find .git repository at "'+ opts.cwd +'"'), null
     );
