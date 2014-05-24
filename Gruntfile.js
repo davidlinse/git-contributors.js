@@ -125,7 +125,7 @@ module.exports = function(grunt) {
   grunt.registerTask('pre', ['clean', 'default']);
 
   //
-  grunt.registerTask('build', ['concat', 'generate-binary']);
+  grunt.registerTask('build', [/*'concat', */ 'generate-binary']);
 
   //
   grunt.registerTask('release', ['pre', 'cov', 'build', 'plato', 'cl', 'clean:tmp']);
