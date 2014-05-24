@@ -53,7 +53,7 @@ GitContributors.list(opts, function (err, result) {
 #### Requirements
 
 ```sh
-$ node --version # 0.8+
+$ node --version # 10.28+
 $ git --version # 1.7+
 ```
 
