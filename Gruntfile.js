@@ -95,6 +95,14 @@ module.exports = function(grunt) {
         dest: 'CHANGELOG.md',
         file: 'CHANGELOG.m'
       }
+    },
+    jscs: {
+      options: {
+        config: '.jscsrc'
+      },
+      files: {
+        src: ['lib/*.js']
+      }
     }
   });
 
@@ -105,6 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
+  grunt.loadNpmTasks('grunt-jscs-checker');
 
   // load external tasks
   grunt.loadTasks('tasks/');

@@ -52,7 +52,8 @@
     "mocha": "~1.19.0",
     "sinon": "~1.10.0",
     "plato": "~1.0.1",
-    "istanbul": "~0.2.10"
+    "istanbul": "~0.2.10",
+    "grunt-jscs-checker": "^0.4.4"
   },
   "contributors": []
 }
