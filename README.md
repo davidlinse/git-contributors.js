@@ -9,11 +9,11 @@ _Note:_<br/>
 Please be aware that the current checked out branch is inspected.
 Currently there is no way to specify a custom branch.
 
-[![Build Status][travis_png]][travis_link] [![Dependency Status][dm_png]][dm_url]
+[![Build Status][travis_svg]][travis_link] [![Dependency Status][dm_svg]][dm_url]
 
-[travis_png]: https://travis-ci.org/davidlinse/git-contributors.js.png?branch=master
+[travis_svg]: https://travis-ci.org/davidlinse/git-contributors.js.svg?branch=master
 [travis_link]: https://travis-ci.org/davidlinse/git-contributors.js
-[dm_png]: https://david-dm.org/davidlinse/git-contributors.js.png
+[dm_svg]: https://david-dm.org/davidlinse/git-contributors.js.svg
 [dm_url]: https://david-dm.org/davidlinse/git-contributors.js
 
 
@@ -76,7 +76,7 @@ $ mocha -R list test/
 $ grunt plato
 ```
 
-[![NPM](https://nodei.co/npm/git-contributors.png?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)
+[![NPM](https://nodei.co/npm/git-contributors.svg?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)
 
 
 [semver]: http://semver.org
