@@ -1,7 +1,7 @@
 {
   "disallowImplicitTypeConversion": ["string"],
   "disallowKeywords": ["with"],
-  "disallowKeywordsOnNewLine": ["else"],
+  "disallowKeywordsOnNewLine": [],
   "disallowLeftStickedOperators": ["?", "+", "-", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<="],
   "disallowMixedSpacesAndTabs": true,
   "disallowMultipleLineBreaks": true,
