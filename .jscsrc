@@ -32,8 +32,8 @@
   },
   "validateIndentation": 2,
   "validateJSDoc": {
-      "checkParamNames": true,
-      "requireParamTypes": true
+    "checkParamNames": true,
+    "requireParamTypes": true
   },
   "validateLineBreaks": "LF",
   "validateQuoteMarks": "'"
