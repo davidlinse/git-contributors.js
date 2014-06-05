@@ -11,7 +11,7 @@
 
 module.exports = {
 
-  parse: function (argv, version) {
+  parse: function parse (argv, version) {
     'use strict';
 
     var program = require('commander');
@@ -21,6 +21,7 @@ module.exports = {
     program
       .version(version)
       .usage('/path/to/repository')
+      .option('-m, --markdown', 'Output in markdown format')
       .parse(argv);
 
     if (!program.args.length) {
