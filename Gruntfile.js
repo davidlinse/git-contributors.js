@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     banner:
       '/*!\n * <%= pkg.title || pkg.name %> (<%= pkg.version %>) - '+
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      ' <%= pkg.repository.url ? "* " + pkg.repository.url + "\\n" : "* " %>' +
+      ' <%= pkg.repository.url ? "* " + pkg.repository.homepage + "\\n" : "* " %>' +
       ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' License: <%= pkg.license %>\n */\n\n',
 
@@ -95,6 +95,14 @@ module.exports = function(grunt) {
         dest: 'CHANGELOG.md',
         file: 'CHANGELOG.m'
       }
+    },
+    jscs: {
+      options: {
+        config: '.jscsrc'
+      },
+      files: {
+        src: ['lib/*.js']
+      }
     }
   });
 
@@ -105,6 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
+  grunt.loadNpmTasks('grunt-jscs-checker');
 
   // load external tasks
   grunt.loadTasks('tasks/');
@@ -125,7 +134,7 @@ module.exports = function(grunt) {
   grunt.registerTask('pre', ['clean', 'default']);
 
   //
-  grunt.registerTask('build', ['concat', 'generate-binary']);
+  grunt.registerTask('build', [/*'concat', */ 'generate-binary']);
 
   //
   grunt.registerTask('release', ['pre', 'cov', 'build', 'plato', 'cl', 'clean:tmp']);

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.8",
+  "version": "0.1.9",
   "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
   "preferGlobal": true,
@@ -10,6 +10,7 @@
   "scripts": {
     "test": "mocha test/test.*.js"
   },
+  "homepage": "https://github.com/davidlinse/git-contributors.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/davidlinse/git-contributors.js.git"
@@ -52,7 +53,8 @@
     "mocha": "~1.19.0",
     "sinon": "~1.10.0",
     "plato": "~1.0.1",
-    "istanbul": "~0.2.10"
+    "istanbul": "~0.2.10",
+    "grunt-jscs-checker": "^0.4.4"
   },
   "contributors": []
 }
