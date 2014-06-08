@@ -56,10 +56,6 @@ module.exports = function(grunt) {
       tmp: ['tmp/']
     },
     exec: {
-      test: {
-        command: 'mocha test/test.*.js',
-        stdout: true
-      },
       // code analysis
       plato: {
         command: './node_modules/.bin/plato -l .jshintrc -d reports/plato/ lib/*.js',
@@ -91,9 +87,7 @@ module.exports = function(grunt) {
       options: {
         repository: '<%= pkg.repository.url %>',
         from: '<%= changelog.from %>',
-        to:   '<%= changelog.to %>',
-        dest: 'CHANGELOG.md',
-        file: 'CHANGELOG.m'
+        to:   '<%= changelog.to %>'
       }
     },
     jscs: {
@@ -102,6 +96,14 @@ module.exports = function(grunt) {
       },
       files: {
         src: ['lib/*.js']
+      }
+    },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/**/test.*.js']
       }
     }
   });
@@ -114,6 +116,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-jscs-checker');
+  grunt.loadNpmTasks('grunt-mocha-test');
 
   // load external tasks
   grunt.loadTasks('tasks/');
@@ -122,7 +125,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['jshint', 'test']);
 
   // execute tests
-  grunt.registerTask('test', 'exec:test');
+  grunt.registerTask('test', 'mochaTest');
 
   // generate coverage (html) report using 'jscover' module
   grunt.registerTask('cov', ['clean:cov', 'exec:cov_run', 'exec:cov_report']);
