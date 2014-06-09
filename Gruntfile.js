@@ -85,7 +85,7 @@ module.exports = function(grunt) {
     },
     changelog: {
       options: {
-        repository: '<%= pkg.repository.url %>',
+        repository: '<%= pkg.homepage %>',
         from: '<%= changelog.from %>',
         to:   '<%= changelog.to %>'
       }
