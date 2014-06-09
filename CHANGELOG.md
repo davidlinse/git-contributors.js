@@ -1,3 +1,12 @@
+<a name="0.1.10"></a>
+### 0.1.10 (2014-06-09)
+
+
+#### Bug Fixes
+
+* **lib:** calculation of commits w/ different mail ([7ef93c01](https://github.com/davidlinse/git-contributors.js/commit/7ef93c01c86a873b999b86583da37147c1dcc321), closes [#8](https://github.com/davidlinse/git-contributors.js/issues/8))
+
+
 <a name="0.1.9"></a>
 ### 0.1.9 (2014-06-05)
 
