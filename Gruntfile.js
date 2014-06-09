@@ -105,6 +105,12 @@ module.exports = function(grunt) {
         },
         src: ['test/**/test.*.js']
       }
+    },
+    complexity: {
+      generic: {
+        src: ['lib/*.js'],
+        options: grunt.file.readJSON('.complexityrc')
+      }
     }
   });
 
@@ -117,6 +123,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-jscs-checker');
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-complexity');
 
   // load external tasks
   grunt.loadTasks('tasks/');
