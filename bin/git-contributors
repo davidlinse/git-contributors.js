@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * git-contributors (0.1.9) - 2014-06-05
+ * git-contributors (0.1.10) - 2014-06-09
  * undefined
  * Copyright (c) 2014 David Linse; License: MIT
  */
@@ -71,7 +71,7 @@ var __exec = function(err, stdout, cb) {
         email   = _.last(parts),
         author  = _.without(parts, email).join(' '),
         commits = _.size(_.filter(entries, function(e) {
-          return e.indexOf(email) > -1;
+          return e.indexOf(author) > -1 && e.indexOf(email) > -1;
         })),
         percentage = (commits / total * 100);
 

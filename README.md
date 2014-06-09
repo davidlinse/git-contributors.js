@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.9)
+### git-contributors.js (0.1.10)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -58,6 +58,7 @@ $ git --version # 1.7+
 ```
 
 #### Dependencies
+* [commander][commander] (~2.2.0)
 * [lodash.js][lodash] (~2.4.1)
 
 
@@ -86,6 +87,7 @@ $ grunt plato
 [sinon]: http://sinonjs.org
 [plato]: https://github.com/es-analysis/plato
 [nodejs]: http://nodejs.org
+[commander]: https://github.com/visionmedia/commander.js
 
 #### Licence
 

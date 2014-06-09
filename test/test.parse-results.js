@@ -101,6 +101,27 @@ describe('git-contributors', function () {
 
     }); //it
 
+
+    it('can parse multiple user with same email', function (done) {
+
+      var inFixture, outFixture;
+
+      inFixture = 'test/fixtures/actual/multi-user-same-mail.log';
+
+      outFixture = 'test/fixtures/expected/multi-user-same-mail.json';
+
+      stubFixture(inFixture);
+
+      GitContributors.list('.', function (err, result) {
+
+        expect(err).to.not.exist;
+
+        expect(result).to.deep.equal(JSON.parse(readIn(outFixture)));
+
+        done();
+      });
+    }); //it
+
   });
 
 
