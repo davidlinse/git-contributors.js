@@ -14,7 +14,7 @@ var exec = require('child_process').exec;
 
 var git = {
 
-  log: function(opts, cb) {
+  log: function log (opts, cb) {
     'use strict';
 
     process.chdir(opts.cwd);

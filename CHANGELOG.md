@@ -1,3 +1,12 @@
+<a name="0.1.9"></a>
+### 0.1.9 (2014-06-05)
+
+
+#### Features
+
+* give at least 0.1 percent contribution ([8600dc08](https://github.com/davidlinse/git-contributors.js.git/commit/8600dc084d87ed51e5e7328e5278852d5984856c), closes [#7](https://github.com/davidlinse/git-contributors.js.git/issues/7))
+
+
 <a name="0.1.6"></a>
 ### 0.1.6 (2014-05-19)
 
