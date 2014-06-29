@@ -142,4 +142,29 @@ describe('git-contributors', function () {
     });
 
   });
+
+
+  describe('can parse options', function () {
+
+    it('to be described', function (done) {
+
+      var inFixture, outFixture;
+
+      inFixture = 'test/fixtures/actual/single-user-multiple-commit.log';
+
+      outFixture = 'test/fixtures/expected/single-user-multiple-commit.md';
+
+      stubFixture(inFixture);
+
+      GitContributors.list({cwd:'.', format:'markdown'}, function (err, result) {
+
+        expect(err).to.not.exist;
+
+        expect(result).to.deep.eql(readIn(outFixture));
+
+        done();
+      });
+    });
+  });
+
 });
