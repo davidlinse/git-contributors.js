@@ -56,7 +56,7 @@
     "istanbul": "~0.2.10",
     "grunt-jscs-checker": "^0.4.4",
     "grunt-mocha-test": "^0.11.0",
-    "grunt-complexity": "^0.1.7"
+    "grunt-complexity": "^0.2.0"
   },
   "contributors": []
 }
