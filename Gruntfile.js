@@ -111,6 +111,21 @@ module.exports = function(grunt) {
         src: ['lib/*.js'],
         options: grunt.file.readJSON('.complexityrc')
       }
+    },
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: ['pkg'],
+        commit: true,
+        commitMessage: 'release v%VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'version %VERSION%',
+        push: false,
+        pushTo: 'upstream',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+      }
     }
   });
 
@@ -124,6 +139,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jscs-checker');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-complexity');
+  grunt.loadNpmTasks('grunt-bump');
 
   // load external tasks
   grunt.loadTasks('tasks/');
