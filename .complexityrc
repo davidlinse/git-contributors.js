@@ -1,0 +1,9 @@
+{
+  "breakOnErrors": true,
+  "errorsOnly": false,
+  "cyclomatic": 3,
+  "halstead": 10.34,
+  "maintainability": 115.63854852753909,
+  "hideComplexFunctions": false,
+  "broadcast": true
+}

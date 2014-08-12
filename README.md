@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.10)
+### git-contributors.js (0.1.11)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -21,7 +21,8 @@ Currently there is no way to specify a custom branch.
 
 ```sh
 $ npm install -g git-contributors
-$ git-contributors.js /path/to/repository-dir/
+$ git-contributors.js --help
+$ git-contributors.js [options] /path/to/repository-dir/
 ```
 
 You can also `require` it somewhere in your node-module,
@@ -69,12 +70,6 @@ $ grunt test
 // or
 $ mocha --version # 1.7.4
 $ mocha -R list test/
-```
-
-#### Reports
-
-```sh
-$ grunt plato
 ```
 
 [![NPM](https://nodei.co/npm/git-contributors.svg?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)

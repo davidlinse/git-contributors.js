@@ -105,6 +105,27 @@ module.exports = function(grunt) {
         },
         src: ['test/**/test.*.js']
       }
+    },
+    complexity: {
+      generic: {
+        src: ['lib/*.js'],
+        options: grunt.file.readJSON('.complexityrc')
+      }
+    },
+    bump: {
+      options: {
+        files: ['package.json'],
+        updateConfigs: ['pkg'],
+        commit: true,
+        commitMessage: 'release v%VERSION%',
+        commitFiles: ['package.json'],
+        createTag: true,
+        tagName: 'v%VERSION%',
+        tagMessage: 'version %VERSION%',
+        push: false,
+        pushTo: 'upstream',
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d'
+      }
     }
   });
 
@@ -117,6 +138,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-jscs-checker');
   grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-complexity');
+  grunt.loadNpmTasks('grunt-bump');
 
   // load external tasks
   grunt.loadTasks('tasks/');
@@ -137,9 +160,9 @@ module.exports = function(grunt) {
   grunt.registerTask('pre', ['clean', 'default']);
 
   //
-  grunt.registerTask('build', [/*'concat', */ 'generate-binary']);
+  grunt.registerTask('bin', [/*'concat', */ 'generate-binary']);
 
   //
-  grunt.registerTask('release', ['pre', 'cov', 'build', 'plato', 'cl', 'clean:tmp']);
+  grunt.registerTask('build', ['pre', 'cov', 'bin', 'plato', 'cl', 'clean:tmp']);
 
 };

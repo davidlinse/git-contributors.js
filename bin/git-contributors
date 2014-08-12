@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * git-contributors (0.1.10) - 2014-06-09
+ * git-contributors (0.1.11) - 2014-08-13
  * undefined
  * Copyright (c) 2014 David Linse; License: MIT
  */
@@ -48,13 +48,8 @@ var __parseOpts = function(opts) {
 
 var __repositoryExists = function(dir /*, cb */) {
   'use strict';
-  var repo   = path.join(dir, '.git'),
-      exists = true;
-
-  if (!fs.existsSync(dir) || !fs.existsSync(repo)) {
-    exists = false;
-  }
-  return exists;
+  var repo   = path.join(dir, '.git');
+  return fs.existsSync(dir) && fs.existsSync(repo);
 };
 
 var __exec = function(err, stdout, cb) {
@@ -90,6 +85,16 @@ var __exec = function(err, stdout, cb) {
   cb(null, list);
 };
 
+var __format = function(data, program) {
+  'use strict';
+
+  if (program.markdown || program.format === 'markdown') {
+    data = require('../lib/markdown-reporter').format(data);
+  }
+
+  return data;
+};
+
 //--
 
 var GitContributors = function GitContributors () {};
@@ -99,15 +104,19 @@ GitContributors.prototype.list = function(opts, cb) {
 
   opts = __parseOpts(opts);
 
+  var _callback = function(err, stdout) {
+    __exec(err, stdout, function(err, data) {
+      cb(err, __format(data, opts));
+    });
+  };
+
   if (!__repositoryExists(opts.cwd /*, cb*/)) {
     return cb(
       new Error('Could not find .git repository at "' + opts.cwd + '"'), null
     );
   }
 
-  git.log(opts, function(err, stdout) {
-    __exec(err, stdout, cb);
-  });
+  git.log(opts, _callback);
 };
 
 GitContributors.prototype.parse = function parseOpts (argv, version) {
@@ -123,9 +132,7 @@ GitContributors.prototype.parse = function parseOpts (argv, version) {
       process.exit(1);
     }
 
-    if (program.markdown) {
-      data = require('../lib/markdown-reporter').format(data);
-    }
+    data = __format(data, program);
 
     console.log(data);
     process.exit(0);
