@@ -10,10 +10,10 @@ if (!module.parent) {
     program.cwd = _.first(program.args);
 
     Q()
-    .then(__repositoryExists)
+    .then(verifyRepositoryExists)
     .then(git.log)
-    .then(__exec)
-    .then(__format)
+    .then(processLog)
+    .then(format)
     .then(function(result){
       'use strict';
       console.log(result);
