@@ -3,28 +3,28 @@
 
 if (!module.parent) {
 
-    var fs      = require('fs');
-    var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
+  var fs      = require('fs');
+  var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
-    program = _.merge(program, require('./_cli').parse(process.argv, version));
-    program.cwd = _.first(program.args);
+  program = _.merge(program, require('./_cli').parse(process.argv, version));
+  program.cwd = _.first(program.args);
 
-    Q()
-    .then(verifyRepositoryExists)
-    .then(git.log)
-    .then(processLog)
-    .then(format)
-    .then(function(result){
-      'use strict';
-      console.log(result);
-    })
-    .catch(function(msg){
-      'use strict';
-      console.log('[ERROR] '+ msg);
-      process.exit(1);
-    })
-    .fin(function(){
-      'use strict';
-      process.exit(0);
-    });
+  Q()
+  .then(verifyRepositoryExists)
+  .then(git.log)
+  .then(processLog)
+  .then(format)
+  .then(function(result){
+    'use strict';
+    console.log(result);
+  })
+  .catch(function(msg){
+    'use strict';
+    console.log('[ERROR] '+ msg);
+    process.exit(1);
+  })
+  .fin(function(){
+    'use strict';
+    process.exit(0);
+  });
 }
