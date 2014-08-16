@@ -39,7 +39,8 @@
   "dependencies": {
     "lodash": "~2.4.1",
     "commander": "~2.2.0",
-    "grunt-bump": "0.0.15"
+    "grunt-bump": "0.0.15",
+    "q": "~1.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

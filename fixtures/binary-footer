@@ -6,5 +6,25 @@ if (!module.parent) {
     var fs      = require('fs');
     var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
-    module.exports.GitContributors.parse(process.argv, version);
+    program = _.merge(program, require('./_cli').parse(process.argv, version));
+    program.cwd = _.first(program.args);
+
+    Q()
+    .then(__repositoryExists)
+    .then(git.log)
+    .then(__exec)
+    .then(__format)
+    .then(function(result){
+      'use strict';
+      console.log(result);
+    })
+    .catch(function(msg){
+      'use strict';
+      console.log('[ERROR] '+ msg);
+      process.exit(1);
+    })
+    .fin(function(){
+      'use strict';
+      process.exit(0);
+    });
 }
