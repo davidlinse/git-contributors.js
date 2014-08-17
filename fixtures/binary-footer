@@ -9,22 +9,17 @@ if (!module.parent) {
   program = _.merge(program, require('./_cli').parse(process.argv, version));
   program.cwd = _.first(program.args);
 
+  var success = function(result) { cb(null, result); };
+  var error   = function(err) { cb(err, null); };
+
   Q()
   .then(verifyRepositoryExists)
   .then(git.log)
   .then(processLog)
   .then(format)
-  .then(function(result){
-    'use strict';
-    console.log(result);
-  })
-  .catch(function(msg){
-    'use strict';
-    console.log('[ERROR] '+ msg);
+  .then(success, error)
+  .catch(function(err){
+    console.log(err.message);
     process.exit(1);
-  })
-  .fin(function(){
-    'use strict';
-    process.exit(0);
   });
 }
