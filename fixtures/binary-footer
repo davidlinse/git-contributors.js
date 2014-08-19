@@ -16,6 +16,7 @@ if (!module.parent) {
   .then(verifyRepositoryExists)
   .then(git.log)
   .then(processLog)
+  .then(filter)
   .then(format)
   .then(success, error)
   .catch(function(err){
