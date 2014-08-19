@@ -6,7 +6,7 @@ if (!module.parent) {
   var fs      = require('fs');
   var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
-  program = _.merge(program, require('./_cli').parse(process.argv, version));
+  program = _.merge(require('./_cli').parse(process.argv, version), program);
   program.cwd = _.first(program.args);
 
   var success = function(result) { cb(null, result); };
