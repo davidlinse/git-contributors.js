@@ -139,9 +139,13 @@ describe('git-contributors', function () {
   });
 
 
-  describe('can parse options', function () {
+  describe('support for --format option', function () {
 
-    it('to be described', function (done) {
+    afterEach(function () {
+      git.log.restore();
+    });
+
+    it('markdown', function (done) {
 
       var inFixture, outFixture;
 
