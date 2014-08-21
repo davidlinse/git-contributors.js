@@ -121,7 +121,6 @@ describe('git-contributors', function () {
       });
 
     }); //it
-
   });
 
 });

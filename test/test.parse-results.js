@@ -12,7 +12,6 @@ var fs     = require('fs'),
     GitContributors = require('../').GitContributors;
 
 
-
 var readIn = function readIn (file) {
   return fs.readFileSync(file, 'utf-8');
 };
@@ -119,9 +118,7 @@ describe('git-contributors', function () {
         done();
       });
     }); //it
-
   });
-
 
   describe('when given wrong arguments', function () {
 
@@ -135,9 +132,7 @@ describe('git-contributors', function () {
 
       expect(f).to.not.throw();
     });
-
   });
-
 
   describe('support for --format option', function () {
 
