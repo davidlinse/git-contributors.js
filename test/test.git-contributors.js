@@ -60,6 +60,16 @@ describe('git-contributors', function () {
     });
 
 
+    it('should invoke callback with error', function (done) {
+
+      GitContributors.list('./not-existing-directory', function(err, result) {
+        expect(err).to.exist;
+        expect(result).to.not.exist;
+        done();
+      });
+    });
+
+
     it('should invoke callback with error and message', function (done) {
 
       var repo, msg;
