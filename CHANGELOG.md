@@ -1,3 +1,12 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2014-08-22)
+
+
+#### Features
+
+* **cli-options:** suppress email via --no-email option ([1e32ff42](https://github.com/davidlinse/git-contributors.js/commit/1e32ff42cff94022a75acc4286e6d84db8d538a4))
+* using _promises_ now
+
 <a name="0.1.11"></a>
 ### 0.1.11 (2014-08-13)
 
