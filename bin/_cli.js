@@ -16,12 +16,12 @@ module.exports = {
 
     var program = require('commander');
 
-    // TODO: move to 'cli' helper
-    //
     program
       .version(version)
       .usage('/path/to/repository')
-      .option('-m, --markdown', 'Output in markdown format')
+      .option('-f, --format [markdown]', 'output in markdown format')
+      .option('-m, --markdown', 'output in markdown format')
+      .option('--no-email', 'remove author email from output')
       .parse(argv);
 
     if (!program.args.length) {
