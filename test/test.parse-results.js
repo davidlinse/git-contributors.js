@@ -12,15 +12,12 @@ var fs     = require('fs'),
     GitContributors = require('../').GitContributors;
 
 
-
 var readIn = function readIn (file) {
   return fs.readFileSync(file, 'utf-8');
 };
 
 var stubFixture = function stubFixture (file) {
-  sinon.stub(git, 'log', function (opts, cb) {
-    cb(null, readIn(file));
-  });
+  sinon.stub(git, 'log').returns(readIn(file));
 };
 
 
@@ -121,32 +118,29 @@ describe('git-contributors', function () {
         done();
       });
     }); //it
-
   });
-
 
   describe('when given wrong arguments', function () {
 
-    it('should throw when no path given via string', function (done) {
+    it('should not throw when no path given via string', function (done) {
 
       var f = function () {
-        GitContributors.list(null, function (/*err, result*/) {});
+        GitContributors.list(null, function (/*err, result*/) {
+          done();
+        });
       };
 
-      expect(f).to.throw({
-        type: 'Error',
-        message: 'Something went wrong while building target path.'
-      });
-
-      done();
+      expect(f).to.not.throw();
     });
-
   });
 
+  describe('support for --format option', function () {
 
-  describe('can parse options', function () {
+    afterEach(function () {
+      git.log.restore();
+    });
 
-    it('to be described', function (done) {
+    it('markdown', function (done) {
 
       var inFixture, outFixture;
 

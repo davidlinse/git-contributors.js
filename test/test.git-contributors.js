@@ -49,14 +49,11 @@ describe('git-contributors', function () {
 
     it('should invoke callback with error', function (done) {
 
-      var spy = sinon.spy();
-
-      GitContributors.list('./not-existing-directory', spy);
-
-      sinon.assert.called(spy);
-      sinon.assert.calledWith(spy, new Error(), null);
-
-      done();
+      GitContributors.list('./not-existing-directory', function(err, result) {
+        expect(err).to.exist;
+        expect(result).to.not.exist;
+        done();
+      });
     });
 
 
@@ -69,10 +66,9 @@ describe('git-contributors', function () {
       msg = 'Could not find .git repository at "'+ repo +'"';
 
       GitContributors.list(repo, function (err) {
-
         expect(err).to.exist;
-        expect(err).to.have.property('message', msg);
-
+        expect(err).to.have.property('message');
+        expect(err.message).to.equal(msg);
         done();
       });
     });
