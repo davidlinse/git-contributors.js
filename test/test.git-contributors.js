@@ -66,10 +66,9 @@ describe('git-contributors', function () {
       msg = 'Could not find .git repository at "'+ repo +'"';
 
       GitContributors.list(repo, function (err) {
-
         expect(err).to.exist;
-        expect(err).to.have.property('message', msg);
-
+        expect(err).to.have.property('message');
+        expect(err.message).to.equal(msg);
         done();
       });
     });
