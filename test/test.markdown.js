@@ -17,9 +17,7 @@ var readIn = function readIn (file) {
 };
 
 var stubFixture = function stubFixture (file) {
-  sinon.stub(git, 'log', function (opts, cb) {
-    cb(null, readIn(file));
-  });
+  sinon.stub(git, 'log').returns(readIn(file));
 };
 
 
@@ -123,7 +121,6 @@ describe('git-contributors', function () {
       });
 
     }); //it
-
   });
 
 });

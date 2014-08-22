@@ -21,8 +21,7 @@ module.exports = function(grunt) {
 
     var opts = {
       process: function(content) {
-        return shebang + '\n' +
-               grunt.config.process('<%= banner %>') +
+        return shebang +'\n' +
                content + '\n' +
                footer + '\n';
       }

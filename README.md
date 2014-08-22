@@ -1,4 +1,4 @@
-### git-contributors.js (0.1.11)
+### git-contributors.js (0.2.0)
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
@@ -59,17 +59,18 @@ $ git --version # 1.7+
 ```
 
 #### Dependencies
-* [commander][commander] (~2.2.0)
+* [commander][commander] (~2.3.0)
 * [lodash.js][lodash] (~2.4.1)
 
 
 #### Tests
 
 ```sh
+$ npm test
+// or
 $ grunt test
 // or
-$ mocha --version # 1.7.4
-$ mocha -R list test/
+$ mocha -R list
 ```
 
 [![NPM](https://nodei.co/npm/git-contributors.svg?downloads=true&stars=true)](https://nodei.co/npm/git-contributors/)

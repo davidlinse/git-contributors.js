@@ -3,8 +3,24 @@
 
 if (!module.parent) {
 
-    var fs      = require('fs');
-    var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
+  var fs      = require('fs');
+  var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
 
-    module.exports.GitContributors.parse(process.argv, version);
+  program = _.merge(require('./_cli').parse(process.argv, version), program);
+  program.cwd = _.first(program.args);
+
+  var success = function(result) { cb(null, result); };
+  var error   = function(err) { cb(err, null); };
+
+  Q()
+  .then(verifyRepositoryExists)
+  .then(git.log)
+  .then(processLog)
+  .then(filter)
+  .then(format)
+  .then(success, error)
+  .catch(function(err){
+    console.log(err.message);
+    process.exit(1);
+  });
 }
