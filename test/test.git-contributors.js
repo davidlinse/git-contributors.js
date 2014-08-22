@@ -49,19 +49,6 @@ describe('git-contributors', function () {
 
     it('should invoke callback with error', function (done) {
 
-      var spy = sinon.spy();
-
-      GitContributors.list('./not-existing-directory', spy);
-
-      sinon.assert.called(spy);
-      sinon.assert.calledWith(spy, new Error(), null);
-
-      done();
-    });
-
-
-    it('should invoke callback with error', function (done) {
-
       GitContributors.list('./not-existing-directory', function(err, result) {
         expect(err).to.exist;
         expect(result).to.not.exist;
