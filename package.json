@@ -1,5 +1,5 @@
 {
-  "version": "0.1.11",
+  "version": "0.2.0",
   "name": "git-contributors",
   "description": "A nodejs module providing contribution stats for your git repository",
   "preferGlobal": true,
