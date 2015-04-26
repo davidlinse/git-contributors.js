@@ -147,13 +147,17 @@ module.exports.GitContributors = new GitContributors();
 if (!module.parent) {
 
   var fs      = require('fs');
-  var version = JSON.parse(fs.readFileSync('package.json', 'utf-8')).version;
+  var pkg     = path.resolve(__dirname  + '/../package.json');
+
+  var version = JSON.parse(fs.readFileSync(pkg, 'utf-8')).version;
 
   program = _.merge(require('./_cli').parse(process.argv, version), program);
   program.cwd = _.first(program.args);
 
-  var success = function(result) { cb(null, result); };
-  var error   = function(err) { cb(err, null); };
+  var success = function(result) {
+    'use strict';
+    console.log(result);
+  };
 
   Q()
   .then(verifyRepositoryExists)
@@ -161,8 +165,9 @@ if (!module.parent) {
   .then(processLog)
   .then(filter)
   .then(format)
-  .then(success, error)
+  .then(success)
   .catch(function(err){
+    'use strict';
     console.log(err.message);
     process.exit(1);
   });
