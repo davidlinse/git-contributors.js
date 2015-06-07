@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     banner:
       '/*!\n * <%= pkg.title || pkg.name %> (<%= pkg.version %>) - '+
       '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      ' <%= pkg.repository.url ? "* " + pkg.repository.homepage + "\\n" : "* " %>' +
+      ' <%= pkg.repository.url ? "* " + pkg.repository.url + "\\n" : "* " %>' +
       ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' License: <%= pkg.license %>\n */\n\n',
 
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-jscs-checker');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-complexity');
   grunt.loadNpmTasks('grunt-bump');

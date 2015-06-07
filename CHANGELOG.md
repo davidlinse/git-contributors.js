@@ -1,3 +1,9 @@
+<a name="0.2.2"></a>
+### 0.2.2 (2015-06-08)
+
+* maintenance release including minor fixes and updated dependencies
+
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2014-08-22)
 
