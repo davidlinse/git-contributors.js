@@ -136,7 +136,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-conventional-changelog');
-  grunt.loadNpmTasks('grunt-jscs-checker');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-complexity');
   grunt.loadNpmTasks('grunt-bump');
