@@ -8,7 +8,7 @@ if (!module.parent) {
 
   var version = JSON.parse(fs.readFileSync(pkg, 'utf-8')).version;
 
-  program = _.merge(require('./_cli').parse(process.argv, version), program);
+  program = _.merge(require('../lib/_cli').parse(process.argv, version), program);
   program.cwd = _.first(program.args);
 
   var success = function(result) {

@@ -5,7 +5,7 @@
   $ grunt generate-binary
 
   @author     David Linse <davidlinse@gmail.com>
-  @version    0.1.1
+  @version    0.2.0
   @license    MIT
 
 */
@@ -31,8 +31,6 @@ module.exports = function(grunt) {
     var dest = grunt.config.process('bin/<%= pkg.name %>');
 
     grunt.file.mkdir('bin');
-    grunt.file.copy('lib/_cli.js', 'bin/_cli.js');
-    grunt.file.copy('lib/gitlog.js', 'bin/gitlog.js');
 
     grunt.file.copy(src, dest, opts);
 
