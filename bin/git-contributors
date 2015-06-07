@@ -74,10 +74,13 @@ var format = function(data) {
 
   var deferred = Q.defer();
 
-  if (program.markdown || program.format === 'markdown') {
+  if (program.markdown === true) {
     data = require('../lib/markdown-reporter').format(data, program);
   }
 
+  if (program.json === true) {
+    data = JSON.stringify(data);
+  }
   deferred.resolve(data);
 
   return deferred.promise;
@@ -106,8 +109,7 @@ var filter = function(data) {
 var program = {
   timeout: 5000,
   cwd: '.',
-  maxBuffer: 25000 * 1024,
-  format: 'json'
+  maxBuffer: 25000 * 1024
 };
 
 
@@ -116,9 +118,11 @@ var GitContributors = function GitContributors () {};
 GitContributors.prototype.list = function(opts, cb) {
   'use strict';
 
+  program.markdown = null;
+  program.json = null;
+
   if (_.isString(opts)) {
     program.cwd = opts;
-    program.format = 'json';
   }
   else {
     program = _.merge(program, opts);
@@ -150,7 +154,7 @@ if (!module.parent) {
 
   var version = JSON.parse(fs.readFileSync(pkg, 'utf-8')).version;
 
-  program = _.merge(require('./_cli').parse(process.argv, version), program);
+  program = _.merge(require('../lib/_cli').parse(process.argv, version), program);
   program.cwd = _.first(program.args);
 
   var success = function(result) {
