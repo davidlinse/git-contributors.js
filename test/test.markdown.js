@@ -25,7 +25,7 @@ describe('git-contributors', function () {
 
   describe('with --markdown option', function () {
 
-    var opts = { cwd: '.', format: 'markdown' };
+    var opts = { cwd: '.', markdown: true };
 
     beforeEach(function () {
     });

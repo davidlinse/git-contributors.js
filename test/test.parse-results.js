@@ -150,7 +150,7 @@ describe('git-contributors', function () {
 
       stubFixture(inFixture);
 
-      GitContributors.list({cwd:'.', format:'markdown'}, function (err, result) {
+      GitContributors.list({cwd:'.', markdown: true}, function (err, result) {
 
         expect(err).to.not.exist;
 
