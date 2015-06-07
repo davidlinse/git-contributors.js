@@ -37,9 +37,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
-    "lodash": "~2.4.1",
-    "commander": "~2.3.0",
-    "q": "~1.0.1"
+    "lodash": "~3.9.3",
+    "commander": "~2.8.1",
+    "q": "~2.0.3"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
