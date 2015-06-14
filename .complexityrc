@@ -3,7 +3,7 @@
   "errorsOnly": false,
   "cyclomatic": 3,
   "halstead": 10.34,
-  "maintainability": 114.62543057522717,
+  "maintainability": 115.17015686762883,
   "hideComplexFunctions": false,
   "broadcast": true
 }
