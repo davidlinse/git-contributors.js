@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*!
- * git-contributors (0.2.2) - 2015-06-08
+ * git-contributors (0.2.3) - 2015-06-14
  * https://github.com/davidlinse/git-contributors.js.git
  * Copyright (c) 2014 David Linse; License: MIT
  */
@@ -134,11 +134,10 @@ GitContributors.prototype.list = function(opts, cb) {
   .then(processLog)
   .then(filter)
   .then(format)
-  .then(function(result){
+  .done(function(result) {
     cb(null, result);
-  })
-  .catch(function(err){
-    cb(err);
+  }, function(err) {
+    cb(err, null);
   });
 };
 
