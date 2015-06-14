@@ -31,8 +31,9 @@ You can also `require` it somewhere in your node-module,
 // your-node-module.js
 var GitContributors = require('git-contributors').GitContributors;
 
-var opts = '/path/to/repository-dir'; // or
-    opts = {cwd: '/path/to/repository-dir', markdown: true};
+var opts = '/path/to/repository-dir';
+    // or
+    opts = {cwd: '/path/to/repository-dir', markdown: false};
 
 GitContributors.list(opts, function (err, result) {
     if (err) { throw err; }
