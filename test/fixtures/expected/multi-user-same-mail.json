@@ -3,24 +3,28 @@
     "commits": 4,
     "email": "john@doe.org",
     "name": "John Doe",
-    "percent": 40
+    "insertions": 16,
+    "deletions": 17
   },
   {
     "commits": 2,
     "email": "john@doe.com",
     "name": "John Doe1",
-    "percent": 20
+    "insertions": 12,
+    "deletions": 0
   },
   {
     "commits": 2,
     "email": "john@doe.com",
     "name": "John Doe2",
-    "percent": 20
+    "insertions": 12,
+    "deletions": 0
   },
   {
     "commits": 2,
     "email": "john@doe.com",
     "name": "John Doe3",
-    "percent": 20
+    "insertions": 12,
+    "deletions": 0
   }
 ]

@@ -3,6 +3,7 @@
     "commits": 1,
     "email": "john@doe.org",
     "name": "John Doe",
-    "percent": 100
+    "insertions": 7,
+    "deletions": 6
   }
 ]
