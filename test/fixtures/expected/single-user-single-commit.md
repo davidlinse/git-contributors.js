@@ -1,1 +1,1 @@
-+ John Doe <john@doe.org>  (1 - 100%)
++ John Doe <john@doe.org>  (commits:1;insertions:7;deletions:6)

@@ -3,6 +3,7 @@
     "commits": 3,
     "name": "John Doe",
     "email": "john@doe.com",
-    "percent": 100
+    "insertions": 10,
+    "deletions": 10
   }
 ]

@@ -2,8 +2,12 @@
 
 A [_Node.js_][nodejs] module providing contribution stats for your git repository.
 
-This module utilize `$ git log --pretty=%an` to calculate and add the amount
-of percental contribution of each committer to the output.
+This module utilize `$ git log --pretty="%an %ae" --no-merges --shortstat` to calculate the commits, insertions and deletions of each committer.
+
+This a library to get a list of the commits, insertions and deletions of each committer.
+
+The [get-contributors](https://github.com/snowyu/get-contributors.js) can output the JSON list of contributors or a list base on a user defined template, many options to customize.
+
 
 _Note:_<br/>
 Please be aware that the current checked out branch is inspected.
@@ -45,10 +49,9 @@ GitContributors.list(opts, function (err, result) {
 
 ```js
 [
-  // sorted descending by commits (beautyfied)
-  { commits: 200, name: 'Maja',  email: 'maja@hive', percent: 76.9 },
-  { commits: 50,  name: 'Flip',  email: 'flip@meadow', percent: 19.2 },
-  { commits: 10,  name: 'Willi', email: 'willi@sunflower', percent: 3.8 }
+  { commits: 200, name: 'Maja',  email: 'maja@hive', insertions: 123, deletions: 34 },
+  { commits: 50,  name: 'Flip',  email: 'flip@meadow', insertions: 123, deletions: 34 },
+  { commits: 10,  name: 'Willi', email: 'willi@sunflower', insertions: 123, deletions: 34 }
 ]
 ```
 

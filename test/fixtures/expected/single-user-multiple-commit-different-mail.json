@@ -3,12 +3,14 @@
     "commits": 6,
     "email": "john@doe.com",
     "name": "John Doe",
-    "percent": 60
+    "insertions": 10,
+    "deletions": 15
   },
   {
     "commits": 4,
     "email": "john@doe.org",
     "name": "John Doe",
-    "percent": 40
+    "insertions": 6,
+    "deletions": 9
   }
 ]
