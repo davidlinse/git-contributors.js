@@ -79,7 +79,7 @@ $ mocha -R list
 
 [semver]: http://semver.org
 [lodash]: http://lodash.com
-[mocha]: http://visionmedia.github.com/mocha/
+[mocha]: http://mochajs.org/
 [chai]: http://chaijs.com
 [sinon]: http://sinonjs.org
 [plato]: https://github.com/es-analysis/plato
