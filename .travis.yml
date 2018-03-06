@@ -6,7 +6,7 @@ node_js:
 
 before_script:
   - npm install -g grunt-cli
-  - mkdir ~/bin
+  - mkdir ~/bin || true
   - export PATH=~/bin:$PATH
   - npm install --dev
 
