@@ -1,3 +1,13 @@
+<a name="0.2.4"></a>
+### 0.2.4 (2022-02-10)
+
+* update dependencies via `npm audit fix`
+
+#### Bug Fixes
+
+* Failing travis build ([609c279c](https://github.com/davidlinse/git-contributors.js/commit/609c279c8a3531827554ef9bb5ce7a494dea6001))
+
+
 <a name="0.2.3"></a>
 ### 0.2.3 (2015-06-14)
 
