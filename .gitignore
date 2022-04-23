@@ -1,5 +1,13 @@
+
+.idea/
+.vscode/
+
+.DS_Store
+
 dist/
 lib-cov/
 npm-debug.log
 node_modules/
 reports/
+
+yarn-error.log
